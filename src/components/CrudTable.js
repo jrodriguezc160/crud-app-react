@@ -1,6 +1,7 @@
 import React from 'react';
+import { CrudTableRow } from './CrudTableRow';
 
-export const CrudTable = () => {
+export const CrudTable = ({ data }) => {
   return (
     <div>
       <h3>Tabla de datos</h3>
@@ -13,14 +14,13 @@ export const CrudTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Pulp Fiction</td>
-            <td>Quentin Tarantino</td>
-            <td>
-              <button>Editar</button>
-              <button>Eliminar</button>
-            </td>
-          </tr>
+          {data.length === 0 ? (
+            <tr>
+              <td>Sin datos</td>
+            </tr>
+          ) : (
+            data.map((el) => <CrudTableRow key={el.id} el={el} />)
+          )}
         </tbody>
       </table>
     </div>

@@ -1,0 +1,96 @@
+* {
+  font-family: sans-serif;
+}
+
+body {
+  font-size: 14px;
+  margin: 0;
+  padding: 2vh 2vw;
+}
+
+button,
+input {
+  margin: 0.25rem 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid lightgrey;
+  border-radius: 0.5rem;
+  width: 7vw;
+  min-width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover,
+input:hover {
+  box-shadow: 0 0 0.2rem 0.1rem #d3d3d335;
+}
+
+button:active,
+input:focus {
+  box-shadow: 0 0 0.2rem 0.1rem #d3d3d350;
+  outline: none;
+}
+
+table {
+  min-width: 250px;
+  width: fit-content;
+  border: 1px solid lightgrey;
+  border-collapse: separate;
+  border-left: 0;
+  border-radius: 0.5rem;
+  border-spacing: 0px;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+  border-collapse: separate;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+th,
+td {
+  min-width: 250px;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-left: 1px solid lightgrey;
+  text-align: center;
+}
+
+/* Aquí intento que los botones e inputs dentro de las celdas estén alineados */
+td button,
+td input {
+  display: inline-flex;
+}
+
+th:hover,
+td:hover {
+  background-color: #d3d3d325;
+}
+
+td {
+  border-top: 1px solid lightgrey;
+}
+
+thead:first-child tr:first-child th:first-child,
+tbody:first-child tr:first-child td:first-child {
+  border-radius: 0.5rem 0 0 0;
+}
+
+thead:last-child tr:last-child th:first-child,
+tbody:last-child tr:last-child td:first-child {
+  border-radius: 0 0 0 0.5rem;
+}
+
+svg {
+  margin-right: 0.5rem;
+}

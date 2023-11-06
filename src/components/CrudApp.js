@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CrudForm } from './CrudForm';
 import { CrudTable } from './CrudTable';
 
@@ -20,7 +20,7 @@ const initialDb = [
   },
   {
     id: 4,
-    title: '2001: A Spce Odyssey',
+    title: '2001: A Space Odyssey',
     director: 'Stanley Kubrick',
   },
   {
@@ -31,11 +31,13 @@ const initialDb = [
 ];
 
 export const CrudApp = () => {
+  const [db, setDb] = useState(initialDb);
+
   return (
     <>
       <h3>CRUD APP</h3>
       <CrudForm />
-      <CrudTable />
+      <CrudTable data={db} />
     </>
   );
 };

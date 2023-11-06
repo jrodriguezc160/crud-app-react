@@ -33,7 +33,7 @@ export const CrudForm = () => {
           onChange={handleChange}
           value={form.director}
         />
-        <input type="submit" value="Enviar" />
+        <input type="submit" value="Eliminar" />
         <input type="reset" value="Limpiar" onClick={handleReset} />
       </form>
     </div>
