@@ -1,4 +1,6 @@
 import React from 'react';
+import { CrudForm } from './CrudForm';
+import { CrudTable } from './CrudTable';
 
 const initialDb = [
   {
@@ -32,8 +34,8 @@ export const CrudApp = () => {
   return (
     <>
       <h3>CRUD APP</h3>
-      <form action=""></form>
-      <table></table>
+      <CrudForm />
+      <CrudTable />
     </>
   );
 };

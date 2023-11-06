@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const initialForm = {
   title: '',
   director: '',
+  id: null,
 };
 
 export const CrudForm = () => {
@@ -33,7 +34,7 @@ export const CrudForm = () => {
           value={form.director}
         />
         <input type="submit" value="Enviar" />
-        <input type="reset" value="Limpiar" />
+        <input type="reset" value="Limpiar" onClick={handleReset} />
       </form>
     </div>
   );
