@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
+const initialForm = {
+  title: '',
+  director: '',
+};
+
 export const CrudForm = () => {
   const [form, setForm] = useState({});
 
   const handleChange = (e) => {};
+
   const handleSubmit = (e) => {};
+
   const handleReset = (e) => {};
+
   return (
     <div>
       <h3>Agregar</h3>
