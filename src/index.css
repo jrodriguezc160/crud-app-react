@@ -12,6 +12,7 @@ button,
 input {
   margin: 0.25rem 0.5rem;
   padding: 0.5rem 1rem;
+  background-color: whitesmoke;
   border: 1px solid lightgrey;
   border-radius: 0.5rem;
   width: 7vw;
@@ -59,17 +60,22 @@ th,
 td {
   min-width: 250px;
   width: fit-content;
+  min-height: 35px;
+  height: fit-content;
   padding: 0.5rem 1rem;
   text-align: left;
   vertical-align: top;
   border-left: 1px solid lightgrey;
   text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;  
 }
 
-/* Aquí intento que los botones e inputs dentro de las celdas estén alineados */
 td button,
 td input {
-  display: inline-flex;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 th:hover,
