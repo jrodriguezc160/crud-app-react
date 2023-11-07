@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const initialForm = {
   title: '',
@@ -13,6 +13,14 @@ export const CrudForm = ({
   setDataToEdit,
 }) => {
   const [form, setForm] = useState(initialForm);
+
+  useEffect(() => {
+    if (dataToEdit) {
+      setForm(dataToEdit);
+    } else {
+      setForm(initialForm);
+    }
+  }, [dataToEdit]);
 
   const handleChange = (e) => {
     setForm({
