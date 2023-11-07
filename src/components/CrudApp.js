@@ -38,7 +38,7 @@ export const CrudApp = () => {
 
   const updateData = (data) => {};
 
-  const deleteData = (data) => {};
+  const deleteData = (id) => {};
 
   return (
     <>

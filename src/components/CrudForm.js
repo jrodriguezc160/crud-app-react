@@ -6,12 +6,12 @@ const initialForm = {
   id: null,
 };
 
-export const CrudForm = ([
+export const CrudForm = ({
   createData,
   updateData,
   dataToEdit,
   setDataToEdit,
-]) => {
+}) => {
   const [form, setForm] = useState(initialForm);
 
   const handleChange = (e) => {
@@ -21,7 +21,7 @@ export const CrudForm = ([
     });
   };
 
-  const handleSubmit = (e) => { 
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!form.title || !form.director) {
