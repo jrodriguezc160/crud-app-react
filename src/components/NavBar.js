@@ -6,10 +6,20 @@ export default function NavBar() {
           <a href="../../public/index.html">Inicio</a>
         </li>
         <li>
-          <a href="https://github.com/jrodriguezc160">GitHub</a>
+          <a
+            href="https://github.com/jrodriguezc160"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
         </li>
         <li>
-          <a href="https://youtube.com/playlist?list=PLvq-jIkSeTUZ5XcUw8fJPTBKEHEKPMTKk&si=xMuFHd3DRzHfmupu">
+          <a
+            href="https://youtube.com/playlist?list=PLvq-jIkSeTUZ5XcUw8fJPTBKEHEKPMTKk&si=xMuFHd3DRzHfmupu"
+            target="_blank"
+            rel="noreferrer"
+          >
             Curso React
           </a>
         </li>

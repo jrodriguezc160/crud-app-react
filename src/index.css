@@ -91,7 +91,7 @@ input[type='reset']:hover {
 
 button:active,
 input:focus {
-  box-shadow: 0 0 3px 1px #d3d3d335;
+  box-shadow: 0 0 3px 1px #d3d3d350;
   outline: none;
 }
 
