@@ -64,6 +64,10 @@ tr {
   border-color: inherit;
 }
 
+th {
+  background-color: whitesmoke;
+}
+
 th,
 td {
   min-width: 250px;
@@ -99,6 +103,10 @@ td {
 thead:first-child tr:first-child th:first-child,
 tbody:first-child tr:first-child td:first-child {
   border-radius: 0.5rem 0 0 0;
+}
+
+thead:first-child tr:first-child th:last-child {
+  border-radius: 0 0.5rem 0 0;
 }
 
 thead:last-child tr:last-child th:first-child,
