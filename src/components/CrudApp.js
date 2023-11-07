@@ -32,12 +32,28 @@ const initialDb = [
 
 export const CrudApp = () => {
   const [db, setDb] = useState(initialDb);
+  const [dataToEdit, setDataToEdit] = useState(null);
+
+  const createData = (data) => {};
+
+  const updateData = (data) => {};
+
+  const deleteData = (data) => {};
 
   return (
     <>
       <h3>CRUD APP</h3>
-      <CrudForm />
-      <CrudTable data={db} />
+      <CrudForm
+        createData={createData}
+        updateData={updateData}
+        dataToEdit={dataToEdit}
+        setDataToEdit={setDataToEdit}
+      />
+      <CrudTable
+        data={db}
+        deleteData={deleteData}
+        setDataToEdit={setDataToEdit}
+      />
     </>
   );
 };

@@ -20,6 +20,7 @@ input {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
 
 button:hover,
@@ -29,7 +30,7 @@ input:hover {
 
 button:active,
 input:focus {
-  box-shadow: 0 0 0.2rem 0.1rem #d3d3d350;
+  box-shadow: 0 0 0.2rem 0.1rem #d3d3d335;
   outline: none;
 }
 
@@ -41,6 +42,11 @@ table {
   border-left: 0;
   border-radius: 0.5rem;
   border-spacing: 0px;
+  transition: all 0.3s ease-in-out;
+}
+
+table:hover {
+  box-shadow: 0 0 0.2rem 0.1rem #d3d3d335;
 }
 
 thead {
@@ -70,6 +76,7 @@ td {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
 
 td button,

@@ -6,14 +6,42 @@ const initialForm = {
   id: null,
 };
 
-export const CrudForm = () => {
-  const [form, setForm] = useState({});
+export const CrudForm = ([
+  createData,
+  updateData,
+  dataToEdit,
+  setDataToEdit,
+]) => {
+  const [form, setForm] = useState(initialForm);
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => { 
+    e.preventDefault();
 
-  const handleReset = (e) => {};
+    if (!form.title || !form.director) {
+      alert('Datos incompletos');
+      return;
+    }
+
+    if (form.id === null) {
+      createData(form);
+    } else {
+      updateData(form);
+    }
+
+    handleReset();
+  };
+
+  const handleReset = (e) => {
+    setForm(initialForm);
+    setDataToEdit(null);
+  };
 
   return (
     <div>
@@ -33,7 +61,7 @@ export const CrudForm = () => {
           onChange={handleChange}
           value={form.director}
         />
-        <input type="submit" value="Eliminar" />
+        <input type="submit" value="Enviar" />
         <input type="reset" value="Limpiar" onClick={handleReset} />
       </form>
     </div>
