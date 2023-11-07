@@ -122,7 +122,7 @@ input:first-of-type {
 
 button:hover,
 input:hover {
-  box-shadow: 0 0 5px 1px #d3d3d350;
+  box-shadow: 0 0 5px 1px #80808035;
 }
 
 button:hover,
@@ -159,7 +159,7 @@ input[type='reset']:focus {
 button:active,
 button:focus,
 input:focus {
-  box-shadow: 0 0 3px 1px #d3d3d350;
+  box-shadow: 0 0 3px 1px #bdbdbd35;
   outline: none;
 }
 
