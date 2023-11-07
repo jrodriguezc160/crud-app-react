@@ -35,14 +35,15 @@ input:focus {
 }
 
 table {
-  table-layout: fixed;
-  width: 50vw; /* El ancho de la tabla es la mitad de la página */
+  min-width: 250px;
+  width: fit-content;
   border: 1px solid lightgrey;
   border-collapse: separate;
   border-left: 0;
   border-radius: 0.5rem;
   border-spacing: 0px;
-  transition: all 0.3s ease-in-out;
+  table-layout: fixed;
+  transition: all 0.3 s ease-in-out;
 }
 
 table:hover {
@@ -56,20 +57,19 @@ thead {
   border-collapse: separate;
 }
 
-tr, th {
+tr {
   display: grid;
-  grid-template-columns: repeat(
-    3,
-    1fr
-  );
-  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
   vertical-align: inherit;
   border-color: inherit;
 }
 
 th,
 td {
-  min-height: auto; /* Altura ajustada automáticamente al contenido */
+  min-width: 250px;
+  width: fit-content;
+  min-height: 35px;
+  height: fit-content;
   padding: 0.5rem 1rem;
   text-align: left;
   vertical-align: top;
@@ -78,8 +78,6 @@ td {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: normal;
-  word-wrap: break-word;
   transition: all 0.3s ease-in-out;
 }
 
