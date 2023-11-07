@@ -100,8 +100,18 @@ input {
   transition: all 0.3s ease-in-out;
 }
 
+input[type=text] {
+  min-width: fit-content;
+  width: 13vw;
+}
+
 button + button {
-  margin-left: 0.5rem;
+  margin-left: 1rem;
+}
+
+.espaciar {
+  display: flex;
+  justify-content: space-between;
 }
 
 button:first-of-type,

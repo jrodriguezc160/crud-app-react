@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { IconoEnviar, IconoLimpiar } from './Iconos';
 
 const initialForm = {
   title: '',
@@ -71,8 +72,15 @@ export const CrudForm = ({
           value={form.director}
         />
         <br />
-        <input type="submit" value="Enviar" id="enviar" />
-        <input type="reset" value="Limpiar" onClick={handleReset} className='margin-left'/>
+        <div className="espaciar">
+          <button type="submit" id="enviar">
+            <IconoEnviar ancho="16" alto="16" /> Enviar
+          </button>
+          <button type="reset" onClick={handleReset} className="margin-left">
+            <IconoLimpiar ancho="16" alto="16" />
+            Limpiar
+          </button>
+        </div>
       </form>
     </div>
   );
