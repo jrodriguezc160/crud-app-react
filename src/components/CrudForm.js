@@ -62,6 +62,7 @@ export const CrudForm = ({
           onChange={handleChange}
           value={form.title}
         />
+        <br />
         <input
           type="text"
           name="director"
@@ -69,8 +70,9 @@ export const CrudForm = ({
           onChange={handleChange}
           value={form.director}
         />
+        <br />
         <input type="submit" value="Enviar" id="enviar" />
-        <input type="reset" value="Limpiar" onClick={handleReset} />
+        <input type="reset" value="Limpiar" onClick={handleReset} className='margin-left'/>
       </form>
     </div>
   );
