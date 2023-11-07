@@ -138,8 +138,8 @@ input[type='reset']:focus {
   box-shadow: 0 0 3px 1px #1e90ff35;
 }
 
-#eliminar:hover,
-#eliminar:focus {
+.btn-rojo:hover,
+.btn-rojo:focus {
   cursor: pointer;
   color: crimson;
   border: 1px solid lightcoral;
@@ -147,8 +147,8 @@ input[type='reset']:focus {
   box-shadow: 0 0 3px 1px #dc143c35;
 }
 
-#enviar:hover,
-#enviar:focus {
+.btn-verde:hover,
+.btn-verde:focus {
   cursor: pointer;
   color: limegreen;
   border: 1px solid palegreen;

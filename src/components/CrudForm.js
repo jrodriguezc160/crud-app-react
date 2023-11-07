@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IconoEnviar, IconoLimpiar } from './Iconos';
+import { IconoEnviar, IconoCancelar } from './Iconos';
 
 const initialForm = {
   title: '',
@@ -73,11 +73,11 @@ export const CrudForm = ({
         />
         <br />
         <div className="espaciar">
-          <button type="submit" id="enviar">
+          <button type="submit" className='btn-verde'>
             <IconoEnviar ancho="16" alto="16" /> Enviar
           </button>
-          <button type="reset" onClick={handleReset} className="margin-left">
-            <IconoLimpiar ancho="16" alto="16" />
+          <button type="reset" onClick={handleReset} className="margin-left btn-rojo">
+            <IconoCancelar ancho="16" alto="16" />
             Limpiar
           </button>
         </div>
