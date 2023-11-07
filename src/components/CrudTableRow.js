@@ -10,7 +10,7 @@ export const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
       <td>{director}</td>
       <td>
         <button onClick={() => setDataToEdit(el)}>Editar</button>
-        <button onClick={() => deleteData(id)}>
+        <button id='eliminar' onClick={() => deleteData(id)}>
           <IconoEliminar ancho="16" alto="16" /> Eliminar
         </button>
       </td>

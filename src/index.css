@@ -8,6 +8,41 @@ body {
   padding: 2vh 2vw;
 }
 
+.navbar {
+  margin: auto;
+  width: fit-content;
+  background-color: whitesmoke;
+  border: 1px solid lightgrey;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0 0 0 2vw;
+  display: flex;
+}
+
+.navbar li {
+  padding-right: 2vw;
+  margin: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: dodgerblue;
+  text-shadow: #1e90ff35 0 0 3px;
+}
+
 button,
 input {
   margin: 0.25rem 0.5rem;
@@ -25,12 +60,38 @@ input {
 
 button:hover,
 input:hover {
-  box-shadow: 0 0 0.2rem 0.1rem #d3d3d335;
+  box-shadow: 0 0 5px 1px #d3d3d335;
+}
+
+button:hover,
+input[type='submit']:hover,
+input[type='reset']:hover {
+  cursor: pointer;
+  color: dodgerblue;
+  border: 1px solid lightblue;
+  background-color: honeydew;
+  box-shadow: 0 0 3px 1px #1e90ff35;
+}
+
+#eliminar:hover {
+  cursor: pointer;
+  color: crimson;
+  border: 1px solid lightcoral;
+  background-color: mistyrose;
+  box-shadow: 0 0 3px 1px #dc143c35;
+}
+
+#enviar:hover {
+  cursor: pointer;
+  color: limegreen;
+  border: 1px solid palegreen;
+  background-color: azure;
+  box-shadow: 0 0 3px 1px #32cd3235;
 }
 
 button:active,
 input:focus {
-  box-shadow: 0 0 0.2rem 0.1rem #d3d3d335;
+  box-shadow: 0 0 3px 1px #d3d3d335;
   outline: none;
 }
 
@@ -47,7 +108,7 @@ table {
 }
 
 table:hover {
-  box-shadow: 0 0 0.2rem 0.1rem #d3d3d335;
+  box-shadow: 0 0  5px 1px #d3d3d335;
 }
 
 thead {
