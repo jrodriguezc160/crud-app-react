@@ -6,8 +6,10 @@ function App() {
   return (
     <>
       <NavBar />
-      <h1>Ejercicios con React</h1>
-      <CrudApp />
+      <div className="content">
+        <h1>Ejercicios con React</h1>
+        <CrudApp />
+      </div>
     </>
   );
 }
