@@ -34,7 +34,11 @@ export const CrudApp = () => {
   const [db, setDb] = useState(initialDb);
   const [dataToEdit, setDataToEdit] = useState(null);
 
-  const createData = (data) => {};
+  const createData = (data) => {
+    data.id = Date.now();
+    console.log(data);
+    setDb([...db, data]);
+  };
 
   const updateData = (data) => {};
 
