@@ -38,9 +38,10 @@ body {
   transition: color 0.3s ease-in-out;
 }
 
-.navbar a:hover {
+.navbar a:hover, a:focus {
   color: dodgerblue;
   text-shadow: #1e90ff35 0 0 3px;
+  outline: none;
 }
 
 button,
@@ -64,8 +65,11 @@ input:hover {
 }
 
 button:hover,
+button:focus,
 input[type='submit']:hover,
-input[type='reset']:hover {
+input[type='submit']:focus,
+input[type='reset']:hover,
+input[type='reset']:focus {
   cursor: pointer;
   color: dodgerblue;
   border: 1px solid lightblue;
@@ -73,7 +77,8 @@ input[type='reset']:hover {
   box-shadow: 0 0 3px 1px #1e90ff35;
 }
 
-#eliminar:hover {
+#eliminar:hover,
+#eliminar:focus {
   cursor: pointer;
   color: crimson;
   border: 1px solid lightcoral;
@@ -81,7 +86,8 @@ input[type='reset']:hover {
   box-shadow: 0 0 3px 1px #dc143c35;
 }
 
-#enviar:hover {
+#enviar:hover,
+#enviar:focus {
   cursor: pointer;
   color: limegreen;
   border: 1px solid palegreen;
@@ -90,6 +96,7 @@ input[type='reset']:hover {
 }
 
 button:active,
+button:focus,
 input:focus {
   box-shadow: 0 0 3px 1px #d3d3d350;
   outline: none;
@@ -108,7 +115,7 @@ table {
 }
 
 table:hover {
-  box-shadow: 0 0  5px 1px #d3d3d335;
+  box-shadow: 0 0 5px 1px #d3d3d335;
 }
 
 thead {
