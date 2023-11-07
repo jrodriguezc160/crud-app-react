@@ -21,20 +21,20 @@ body {
 }
 
 .navbar ul {
+  margin: 0.5rem 0 .5rem 1rem;
   list-style: none;
-  padding: 0 0 0 2vw;
+  padding-left: 1rem;
   display: flex;
 }
 
 .navbar li {
-  padding-right: 2vw;
   margin: 0;
 }
 
 .navbar a {
   text-decoration: none;
   color: black;
-  padding: 10px;
+  padding-right: 2rem;
   transition: color 0.3s ease-in-out;
 }
 
@@ -59,9 +59,14 @@ input {
   transition: all 0.3s ease-in-out;
 }
 
+button:first-of-type,
+input:first-of-type {
+  margin-left: 0px;
+}
+
 button:hover,
 input:hover {
-  box-shadow: 0 0 5px 1px #d3d3d335;
+  box-shadow: 0 0 5px 1px #d3d3d350;
 }
 
 button:hover,
