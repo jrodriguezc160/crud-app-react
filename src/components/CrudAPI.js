@@ -3,10 +3,14 @@ import { CrudForm } from './CrudForm';
 import { CrudTable } from './CrudTable';
 import helpHttp from '../helpers/helpHttp';
 import { useEffect } from 'react';
+import { Loader } from './Loader';
+import { Message } from './Message';
 
-export const CrudAPI = () => {
+const CrudAPI = () => {
   const [db, setDb] = useState([]);
   const [dataToEdit, setDataToEdit] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   let api = helpHttp();
   let url = 'http://localhost:5000/movies';
@@ -20,7 +24,7 @@ export const CrudAPI = () => {
         setDb(null);
       }
     });
-  }, []);
+  }, [api, url]);
 
   const createData = (data) => {
     data.id = Date.now();
@@ -61,13 +65,20 @@ export const CrudAPI = () => {
           />
         </div>
         <div className="contenedor-de">
-          <CrudTable
-            data={db}
-            deleteData={deleteData}
-            setDataToEdit={setDataToEdit}
-          />
+          {loading && <Loader />}
+          {error && <Message />}
+
+          {db && (
+            <CrudTable
+              data={db}
+              deleteData={deleteData}
+              setDataToEdit={setDataToEdit}
+            />
+          )}
         </div>
       </div>
     </>
   );
 };
+
+export default CrudAPI;

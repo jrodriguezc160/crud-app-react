@@ -1,7 +1,7 @@
 import React from 'react';
 import { CrudApp } from './components/CrudApp';
 import NavBar from './components/NavBar';
-import { CrudAPI } from './components/CrudAPI';
+import CrudAPI from './components/CrudAPI';
 
 function App() {
   return (

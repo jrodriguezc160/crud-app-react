@@ -14,10 +14,17 @@ body {
   padding: 0;
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background-color: lightgrey;
+}
+
 /* Barra de navegación
 (hecha con listas) */
 
 .navbar {
+  z-index: 99;
   position: sticky;
   text-align: center;
   top: 0;
