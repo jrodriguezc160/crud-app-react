@@ -49,7 +49,7 @@ export const CrudAPI = () => {
   return (
     <>
       <h3>CRUD API</h3>
-      <p>Carga de la base de datos llamando a una api falsa (usando json)</p>
+      <p>Carga de la base de datos llamando a una API falsa (usando JSON)</p>
       <br />
       <div className="contenedor-principal">
         <div className="contenedor-iz">
