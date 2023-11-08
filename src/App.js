@@ -10,8 +10,10 @@ function App() {
       <div className="content">
         <h1>Ejercicios con React</h1>
         <hr />
+        <br />
         <CrudAPI />
         <hr />
+        <br />
         <CrudApp />
       </div>
     </>

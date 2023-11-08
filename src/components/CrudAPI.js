@@ -1,10 +1,26 @@
 import React, { useState } from 'react';
 import { CrudForm } from './CrudForm';
 import { CrudTable } from './CrudTable';
+import helpHttp from '../helpers/helpHttp';
+import { useEffect } from 'react';
 
 export const CrudAPI = () => {
   const [db, setDb] = useState([]);
   const [dataToEdit, setDataToEdit] = useState(null);
+
+  let api = helpHttp();
+  let url = 'http://localhost:5000/movies';
+
+  useEffect(() => {
+    api.get(url).then((res) => {
+      // console.log(res)
+      if (!res.err) {
+        setDb(res);
+      } else {
+        setDb(null);
+      }
+    });
+  }, []);
 
   const createData = (data) => {
     data.id = Date.now();
@@ -32,7 +48,8 @@ export const CrudAPI = () => {
 
   return (
     <>
-      <h3>CRUD APP</h3>
+      <h3>CRUD API</h3>
+      <p>Carga de la base de datos llamando a una api falsa (usando json)</p>
       <br />
       <div className="contenedor-principal">
         <div className="contenedor-iz">
