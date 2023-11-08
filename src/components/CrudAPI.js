@@ -7,7 +7,7 @@ import { Loader } from './Loader';
 import { Message } from './Message';
 
 const CrudAPI = () => {
-  const [db, setDb] = useState([]);
+  const [db, setDb] = useState(null);
   const [dataToEdit, setDataToEdit] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -16,6 +16,7 @@ const CrudAPI = () => {
   let url = 'http://localhost:5000/movies';
 
   useEffect(() => {
+    setLoading(true);
     api.get(url).then((res) => {
       // console.log(res)
       if (!res.err) {
@@ -23,8 +24,9 @@ const CrudAPI = () => {
       } else {
         setDb(null);
       }
+      setLoading(false);
     });
-  }, [api, url]);
+  }, []);
 
   const createData = (data) => {
     data.id = Date.now();
@@ -67,7 +69,6 @@ const CrudAPI = () => {
         <div className="contenedor-de">
           {loading && <Loader />}
           {error && <Message />}
-
           {db && (
             <CrudTable
               data={db}
