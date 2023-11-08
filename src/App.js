@@ -1,6 +1,7 @@
 import React from 'react';
 import { CrudApp } from './components/CrudApp';
 import NavBar from './components/NavBar';
+import { CrudAPI } from './components/CrudAPI';
 
 function App() {
   return (
@@ -8,6 +9,9 @@ function App() {
       <NavBar />
       <div className="content">
         <h1>Ejercicios con React</h1>
+        <hr />
+        <CrudAPI />
+        <hr />
         <CrudApp />
       </div>
     </>
