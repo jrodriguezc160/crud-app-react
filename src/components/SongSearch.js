@@ -17,7 +17,7 @@ const SongSearch = () => {
       const { artist, song } = search;
 
       let artistURL = `https://theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
-      let songURL = `https://api.lyrics.ovh/v1/${artist}/${song}`;
+      let songURL = `https://api.lyrics.ovh/v1/${encodeURIComponent(artist)}/${encodeURIComponent(song)}`;
 
       console.log(artistURL, songURL);
 
