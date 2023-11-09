@@ -20,32 +20,15 @@ const SongSearch = () => {
       song = song.toLowerCase();
 
       let artistURL = `https://theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
+      let songURL = `https://api.lyrics.ovh/v1/${artist}/${song}`;
 
-      console.log(artistURL);
+      console.log(artistURL, songURL);
 
       setLoading(true);
 
-      // Usamos la API de Genius ya que la propuesta en el curso no funciona
-      const url = `https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=2396871`;
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key':
-            'eece6f4002msh72672a9098e27bep123268jsn799ba6432c79',
-          'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com',
-        },
-      };
-
-      try {
-        const response = await fetch(url, options);
-        const result = await response.text();
-        console.log(result);
-      } catch (error) {
-        console.error(error);
-      }
-
       const [artistRes, songRes] = await Promise.all([
         helpHttp().get(artistURL),
+        helpHttp().get(songURL),
       ]);
 
       console.log(artistRes, songRes);
