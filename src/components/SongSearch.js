@@ -14,10 +14,13 @@ const SongSearch = () => {
     if (search === null) return;
 
     const fetchData = async () => {
-      const { artist, song } = search;
+      let { artist, song } = search;
+
+      artist = artist.toLowerCase();
+      song = song.toLowerCase();
 
       let artistURL = `https://theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
-      let songURL = `https://api.lyrics.ovh/v1/${encodeURIComponent(artist)}/${encodeURIComponent(song)}`;
+      let songURL = `https://api.lyrics.ovh/v1/${artist}/${song}`;
 
       console.log(artistURL, songURL);
 
