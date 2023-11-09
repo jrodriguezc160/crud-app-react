@@ -60,7 +60,7 @@ export const CrudApp = () => {
 
   return (
     <>
-      <h3>CRUD APP</h3>
+      <h2>CRUD APP</h2>
       <p>
         Carga de la base de datos a través de un objeto declarado en este mismo
         archivo (sin hacer peticiones)

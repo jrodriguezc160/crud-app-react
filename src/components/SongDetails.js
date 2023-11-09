@@ -1,9 +1,13 @@
 import React from 'react';
+import SongArtist from './SongArtist';
+import SongLyrics from './SongLyrics';
 
-const SongDetails = () => {
+const SongDetails = ({ search, lyric, bio }) => {
   return (
     <div>
-      <h4>Detalles</h4>
+      <h3>Detalles</h3>
+      <SongArtist />
+      <SongLyrics />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { CrudForm } from './CrudForm';
 import { CrudTable } from './CrudTable';
 import helpHttp from '../helpers/helpHttp';
 import { useEffect } from 'react';
-import { Loader } from './Loader';
+import Loader from './Loader';
 import Message from './Message';
 
 const CrudAPI = () => {
@@ -94,7 +94,7 @@ const CrudAPI = () => {
 
   return (
     <>
-      <h3>CRUD API</h3>
+      <h2>CRUD API</h2>
       <p>Carga de la base de datos llamando a una API falsa (usando JSON)</p>
       <br />
       <div className="contenedor-principal">

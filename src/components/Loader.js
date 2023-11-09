@@ -1,7 +1,7 @@
 import React from 'react';
 import './Loader.css';
 
-export const Loader = () => {
+const Loader = () => {
   return (
     <div>
       <div className="loadingio-spinner-spinner-0v6o2yhj8fl">
@@ -23,3 +23,5 @@ export const Loader = () => {
     </div>
   );
 };
+
+export default Loader;
