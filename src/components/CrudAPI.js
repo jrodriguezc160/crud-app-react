@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CrudForm } from './CrudForm';
 import { CrudTable } from './CrudTable';
-import helpHttp from '../helpers/helpHttp';
+import HelpHttp from '../helpers/HelpHttp';
 import { useEffect } from 'react';
 import Loader from './Loader';
 import Message from './Message';
@@ -12,7 +12,7 @@ const CrudAPI = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  let api = helpHttp();
+  let api = HelpHttp();
   let url = 'http://localhost:5000/movies';
 
   useEffect(() => {
