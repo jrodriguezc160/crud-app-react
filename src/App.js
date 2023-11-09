@@ -13,12 +13,15 @@ function App() {
         <hr />
         <br />
         <SongSearch />
+        <br />
         <hr />
         <br />
         <CrudAPI />
+        <br />
         <hr />
         <br />
         <CrudApp />
+        <br />
       </div>
     </>
   );

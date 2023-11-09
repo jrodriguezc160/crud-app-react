@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SongForm from './SongForm';
 import SongDetails from './SongDetails';
 import Loader from './Loader';
-import HelpHttp from '../helpers/HelpHttp';
+import { helpHttp } from '../helpers/helpHttp';
 
 const SongSearch = () => {
   const [search, setSearch] = useState(null);
@@ -27,8 +27,8 @@ const SongSearch = () => {
       setLoading(true);
 
       const [artistRes, songRes] = await Promise.all([
-        HelpHttp().get(artistURL),
-        HelpHttp().get(songURL),
+        helpHttp().get(artistURL),
+        helpHttp().get(songURL),
       ]);
 
       console.log(artistRes, songRes);
