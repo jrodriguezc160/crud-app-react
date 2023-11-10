@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  transition: 0.3s all ease-out;
 }
 
 .content {
@@ -183,6 +184,7 @@ input:focus {
 (estilos varios que incluyen la thead) */
 
 table {
+  overflow: hidden;
   min-width: fit-content;
   width: 80%;
   border: 1px solid lightgrey;
@@ -297,17 +299,88 @@ svg {
   padding: 0.5rem;
 }
 
-.dark-theme-btn:hover {
-  color: #000;
-  border: 1px solid lightgrey;
-  box-shadow: 0 0 5px 1px #80808035;
+.dark-mode {
+  background-color: #1e1e1e;
+  color: lightgrey;
 }
 
-.dark-mode {
-  background-color: #0e1111;
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode b {
   color: whitesmoke;
 }
 
 .dark-theme-btn svg {
   margin: auto;
+}
+
+.dark-mode button,
+.dark-mode input {
+  background-color: #252526;
+  border: 1px solid #3e3e42;
+  color: lightgrey;
+}
+
+.dark-mode button:hover {
+  background-color: #1e90ff35;
+  border: 1px solid lightblue;
+  box-shadow: 0 0 3px 1px #add8e635;
+  color: honeydew;
+}
+
+.dark-mode .btn-rojo:hover {
+  background-color: #dc143c35;
+  border: 1px solid lightcoral;
+  box-shadow: 0 0 3px 1px #f0808035;
+  color: mistyrose;
+}
+
+.dark-mode .btn-verde:hover {
+  background-color: #32cd3235;
+  border: 1px solid palegreen;
+  box-shadow: 0 0 3px 1px #98fb9835;
+  color: azure;
+}
+
+/* Tablas */
+.dark-mode table,
+.dark-mode th,
+.dark-mode td {
+  border-color: #3e3e42;
+}
+
+.dark-mode hr {
+  background-color: #3e3e42;
+}
+
+/* TH */
+.dark-mode th {
+  background-color: #2d2d30;
+}
+
+.dark-mode th:hover,
+.dark-mode td:hover {
+  background-color: #3e3e42;
+}
+
+/* TD */
+.dark-mode td {
+  background-color: #252526;
+}
+
+.dark-mode .navbar {
+  background-color: #252526;
+  border-color: #3e3e42;
+}
+
+.dark-mode .navbar a {
+  color: whitesmoke;
+}
+
+.dark-mode .navbar a:hover {
+  color: honeydew;
+  box-shadow: 0 0 3px 1px #add8e635;
 }
