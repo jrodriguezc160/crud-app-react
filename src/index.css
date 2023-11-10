@@ -90,7 +90,7 @@ a:focus {
   flex: 1;
 }
 
-.contenedor-de>div {
+.contenedor-de > div {
   height: 50%;
   width: 100%;
   margin: auto;
@@ -117,7 +117,7 @@ input {
   transition: all 0.3s ease-in-out;
 }
 
-input[type=text] {
+input[type='text'] {
   min-width: fit-content;
   width: 13vw;
 }
@@ -142,7 +142,7 @@ input:hover {
 }
 
 button:hover,
-button:focus,
+button:active,
 input[type='submit']:hover,
 input[type='submit']:focus,
 input[type='reset']:hover,
@@ -155,7 +155,7 @@ input[type='reset']:focus {
 }
 
 .btn-rojo:hover,
-.btn-rojo:focus {
+.btn-rojo:active {
   cursor: pointer;
   color: crimson;
   border: 1px solid lightcoral;
@@ -164,7 +164,7 @@ input[type='reset']:focus {
 }
 
 .btn-verde:hover,
-.btn-verde:focus {
+.btn-verde:active {
   cursor: pointer;
   color: limegreen;
   border: 1px solid palegreen;
@@ -267,4 +267,47 @@ tbody:last-child tr:last-child td:first-child {
 
 svg {
   margin-right: 0.5rem;
+}
+
+/* Dark-theme button
+(modo oscuro) */
+
+.dark-theme-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 2vh;
+  right: 2vw;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  border-radius: 50rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: white;
+  color: lightgrey;
+  cursor: pointer;
+  outline: 0;
+  transition: all 0.3s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgrey;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.dark-theme-btn:hover {
+  color: #000;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 5px 1px #80808035;
+}
+
+.dark-mode {
+  background-color: #0e1111;
+  color: whitesmoke;
+}
+
+.dark-theme-btn svg {
+  margin: auto;
 }
