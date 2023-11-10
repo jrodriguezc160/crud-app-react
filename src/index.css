@@ -55,7 +55,7 @@ hr {
   text-decoration: none;
   color: black;
   padding-right: 2rem;
-  transition: color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar a:hover,
@@ -382,5 +382,5 @@ svg {
 
 .dark-mode .navbar a:hover {
   color: honeydew;
-  box-shadow: 0 0 3px 1px #add8e635;
+  text-shadow: 0 0 3px lightblue;
 }
