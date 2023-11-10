@@ -285,8 +285,8 @@ svg {
   border-radius: 50rem;
   font-size: 1rem;
   font-weight: bold;
-  background-color: white;
-  color: lightgrey;
+  background-color: whitesmoke;
+  color: darkslategrey;
   cursor: pointer;
   outline: 0;
   transition: all 0.3s ease-out;
@@ -297,6 +297,10 @@ svg {
   box-sizing: border-box;
   margin: 0;
   padding: 0.5rem;
+}
+
+.dark-mode .dark-theme-btn {
+  background-color: #2d2d30;
 }
 
 .dark-mode {
@@ -325,21 +329,21 @@ svg {
 }
 
 .dark-mode button:hover {
-  background-color: #1e90ff35;
+  background-color: #1E364D;
   border: 1px solid lightblue;
   box-shadow: 0 0 3px 1px #add8e635;
   color: honeydew;
 }
 
 .dark-mode .btn-rojo:hover {
-  background-color: #dc143c35;
+  background-color: #461C24;
   border: 1px solid lightcoral;
   box-shadow: 0 0 3px 1px #f0808035;
   color: mistyrose;
 }
 
 .dark-mode .btn-verde:hover {
-  background-color: #32cd3235;
+  background-color: #224322;
   border: 1px solid palegreen;
   box-shadow: 0 0 3px 1px #98fb9835;
   color: azure;
