@@ -502,6 +502,7 @@ BÚSQUEDA DE PELÍCULAS */
 .movie-item:hover {
   transform: scale(1.1);
   margin: 1rem;
+  cursor: pointer;
 
   .light {
     opacity: 0.9;
@@ -532,13 +533,15 @@ BÚSQUEDA DE PELÍCULAS */
 
   .light {
     opacity: 0;
-    filter: blur(25px);
+    filter: blur(20px);
     width: 25vh;
     height: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin: inherit;
+    padding: inherit;
     z-index: -99;
     transition: all 0.3s ease-in-out;
   }
