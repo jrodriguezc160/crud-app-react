@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 const MoviesList = (props) => {
   return (
     <div className="movies-container">
+      <div className="margen-manual">&nbsp;</div>
       {props.movies.map((movie, index) => (
         <div className="movie-item">
           <div class="ambilight">
