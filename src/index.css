@@ -550,3 +550,24 @@ BÚSQUEDA DE PELÍCULAS */
 .margen-manual {
   min-width: 2vw;
 }
+
+/* Pequeño código
+para meter un SVG dentro de un input */
+
+label {
+  position: relative;
+}
+
+label:before {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 16px;
+  background: url('../public/search.svg');
+}
+
+.input-con-icono {
+  padding-left: calc(2rem + 16px);
+}
