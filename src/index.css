@@ -2,6 +2,10 @@
   font-family: sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-size: 14px;
   margin: 0;
@@ -69,6 +73,11 @@ a:focus {
   margin-left: 0.75rem;
 }
 
+.espaciar {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Flex 
 (para el buscador y la tabla) */
 
@@ -100,6 +109,33 @@ a:focus {
   justify-content: center;
 }
 
+/* Consulta de medios para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .contenedor-principal {
+    flex-direction: column; /* Cambiado a dirección de columna en pantallas más pequeñas */
+  }
+
+  .contenedor-de,
+  .contenedor-iz {
+    margin-bottom: 2rem;
+    padding-right: 0;
+    padding-left: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 100%; /* Ajuste del ancho en pantallas más pequeñas */
+  }
+
+  .espaciar {
+    display: block;
+    flex-direction: column;
+  }
+
+  .espaciar > button {
+    margin-right: .35rem;
+    margin-left: 0;
+  }
+}
+
 /* Botones e inputs
 (estilos chulos) */
 
@@ -121,15 +157,6 @@ input {
 input[type='text'] {
   min-width: fit-content;
   width: 13vw;
-}
-
-button + button {
-  margin-left: 1rem;
-}
-
-.espaciar {
-  display: flex;
-  justify-content: space-between;
 }
 
 button:first-of-type,
@@ -184,7 +211,6 @@ input:focus {
 (estilos varios que incluyen la thead) */
 
 table {
-  overflow: hidden;
   min-width: fit-content;
   width: 80%;
   border: 1px solid lightgrey;
@@ -329,14 +355,14 @@ svg {
 }
 
 .dark-mode button:hover {
-  background-color: #1E364D;
+  background-color: #1e364d;
   border: 1px solid lightblue;
   box-shadow: 0 0 3px 1px #add8e635;
   color: honeydew;
 }
 
 .dark-mode .btn-rojo:hover {
-  background-color: #461C24;
+  background-color: #461c24;
   border: 1px solid lightcoral;
   box-shadow: 0 0 3px 1px #f0808035;
   color: mistyrose;
@@ -387,4 +413,25 @@ svg {
 .dark-mode .navbar a:hover {
   color: honeydew;
   text-shadow: 0 0 3px lightblue;
+}
+
+/* Estilos para la aplicación de
+BÚSQUEDA DE PELÍCULAS */
+
+.movies-container {
+  display: flex;
+  overflow-x: auto;
+  height: 459px;
+}
+
+/* Estilo para cada elemento de película */
+.movie-item {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.movie-item img {
+  width: 100%;
+  height: auto;
 }

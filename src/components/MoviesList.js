@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 const MoviesList = (props) => {
   return (
-    <>
+    <div className="movies-container">
       {props.movies.map((movie, index) => (
-        <div>
-          <img src={movie.Poster} alt="movie"></img>
+        <div className="movie-item">
+          <img src={movie.Poster} alt="movie" />
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

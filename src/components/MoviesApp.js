@@ -42,7 +42,10 @@ const MoviesApp = () => {
         <br />
         <br />
       </p>
-      <MoviesList movies={movies} />
+
+      <div>
+        <MoviesList movies={movies} />
+      </div>
     </>
   );
 };
