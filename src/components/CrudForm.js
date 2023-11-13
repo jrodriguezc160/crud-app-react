@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { IconoEnviar, IconoCancelar } from './Iconos';
-import ImdbId from "./ReturnMovieId"
 
 const initialForm = {
   title: '',
@@ -46,8 +45,6 @@ export const CrudForm = ({
     }
 
     handleReset();
-
-    <ImdbId title='Star Wars'/>
   };
 
   const handleReset = (e) => {
