@@ -2,8 +2,8 @@ import React from 'react';
 import { CrudApp } from './components/CrudApp';
 import NavBar from './components/NavBar';
 import CrudAPI from './components/CrudAPI';
-import SongSearch from './components/SongSearch';
 import DarkTheme from './temaOscuro';
+import MoviesApp from './components/MoviesApp';
 
 function App() {
   return (
@@ -14,15 +14,21 @@ function App() {
         <h1>Ejercicios con React</h1>
         <hr />
         <br />
-        <SongSearch />
+        <br />
+        <MoviesApp />
+        <br />
         <br />
         <hr />
+        <br />
         <br />
         <CrudAPI />
         <br />
+        <br />
         <hr />
         <br />
+        <br />
         <CrudApp />
+        <br />
         <br />
       </div>
     </>
