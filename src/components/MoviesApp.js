@@ -30,7 +30,7 @@ const MoviesApp = () => {
         <MovieSearchBox
           searchValue={searchValue}
           setSearchValue={setSearchValue}
-        />
+          />
       </div>
 
       <div>

@@ -482,7 +482,7 @@ BÚSQUEDA DE PELÍCULAS */
   margin: 0;
   display: flex;
   overflow-x: auto;
-  height: 400px;
+  height: 450px;
   align-items: center;
 }
 
