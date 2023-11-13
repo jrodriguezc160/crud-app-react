@@ -10,10 +10,12 @@ function App() {
     <>
       <NavBar />
       <DarkTheme btn=".dark-theme-btn" classDark="dark-mode" />
-      <div className="content">
-        <h1>Ejercicios con React</h1>
+      <div className="content-x-nomargin">
+        <h1 className='content'>Ejercicios con React</h1>
         <hr />
         <MoviesApp />
+      </div>
+      <div className="content">
         <br />
         <br />
         <hr />

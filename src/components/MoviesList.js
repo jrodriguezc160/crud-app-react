@@ -5,7 +5,10 @@ const MoviesList = (props) => {
     <div className="movies-container">
       {props.movies.map((movie, index) => (
         <div className="movie-item">
-          <img src={movie.Poster} alt="movie" />
+          <div class="ambilight">
+            <img src={movie.Poster} alt="Image1" className="image" />
+            <img src={movie.Poster} alt="" className="light" />
+          </div>
         </div>
       ))}
     </div>

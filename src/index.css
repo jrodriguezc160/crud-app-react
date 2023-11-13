@@ -42,7 +42,12 @@ body {
 }
 
 .content {
-  margin: 6vh 3vw;
+  margin: 6vh 0 0 3vw;
+  padding: 0;
+}
+
+.content-x-nomargin {
+  margin: 6vh 0;
   padding: 0;
 }
 
@@ -474,6 +479,7 @@ svg {
 BÚSQUEDA DE PELÍCULAS */
 
 .movies-container {
+  margin: 0;
   display: flex;
   overflow-x: auto;
   height: 400px;
@@ -482,24 +488,58 @@ BÚSQUEDA DE PELÍCULAS */
 
 /* Estilo para cada elemento de película */
 .movie-item {
+  position: relative;
   flex: 0 0 auto;
   height: fit-content;
   overflow: hidden;
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
+  display: flex;
+  flex-direction: column; /* Apila las imágenes verticalmente */
+  align-items: center;
   transition: all 0.3s ease-in-out;
+  overflow: visible;
 }
 
 .movie-item:hover {
   transform: scale(1.1);
-  margin: 1.25rem;
+  margin: 1rem;
+
+  .light {
+    opacity: 0.9;
+    z-index: -99;
+  }
 }
 
 .movie-item img {
-  position: relative;
-  margin-top: auto;
-  width: 30vh;
+  width: 25vh;
   height: auto;
   display: block;
   margin: auto;
+}
+
+.ambilight {
+  margin: 0 0;
+  width: 25vh;
+  height: auto;
+  padding-left: 1vw;
+  position: relative;
+  overflow: visible;
+
+  .image {
+    max-width: 100%;
+    height: auto;
+    z-index: 40;
+  }
+
+  .light {
+    opacity: 0;
+    filter: blur(25px);
+    width: 25vh;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -99;
+    transition: all 0.3s ease-in-out;
+  }
 }
