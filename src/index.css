@@ -14,6 +14,33 @@ body {
   transition: 0.3s all ease-out;
 }
 
+::-webkit-scrollbar-track {
+  background-color: whitesmoke;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: whitesmoke;
+}
+
+::-webkit-scrollbar-thumb {
+  padding: 2px;
+  border-radius: 10px;
+  border-radius: 10px;
+  background-color: lightgrey;
+  box-shadow: 0 0 3px 1px #ffffff35;
+  transition: all 0.3s ease-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 10px;
+  border-radius: 10px;
+  background-color: rgb(170, 170, 170);
+  box-shadow: 0 0 3px 1px #ffffff35;
+  transition: all 0.3s ease-out;
+}
+
 .content {
   margin: 6vh 3vw;
   padding: 0;
@@ -38,6 +65,7 @@ hr {
   width: 100%;
   background-color: whitesmoke;
   border: 1px solid lightgrey;
+  border-top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,7 +159,7 @@ a:focus {
   }
 
   .espaciar > button {
-    margin-right: .35rem;
+    margin-right: 0.35rem;
     margin-left: 0;
   }
 }
@@ -375,6 +403,33 @@ svg {
   color: azure;
 }
 
+.dark-mode ::-webkit-scrollbar-track {
+  background-color: #2d2d30;
+}
+
+.dark-mode ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #2d2d30;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  padding: 2px;
+  border-radius: 10px;
+  border-radius: 10px;
+  background-color: grey;
+  box-shadow: 0 0 3px 1px #ffffff35;
+  transition: all 0.3s ease-out;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+  border-radius: 10px;
+  border-radius: 10px;
+  background-color: lightgrey;
+  box-shadow: 0 0 3px 1px #ffffff35;
+  transition: all 0.3s ease-out;
+}
+
 /* Tablas */
 .dark-mode table,
 .dark-mode th,
@@ -421,17 +476,30 @@ BÚSQUEDA DE PELÍCULAS */
 .movies-container {
   display: flex;
   overflow-x: auto;
-  height: 459px;
+  height: 400px;
+  align-items: center;
 }
 
 /* Estilo para cada elemento de película */
 .movie-item {
   flex: 0 0 auto;
-  margin-right: 10px;
+  height: fit-content;
   overflow: hidden;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.movie-item:hover {
+  transform: scale(1.1);
+  margin: 1.25rem;
 }
 
 .movie-item img {
-  width: 100%;
+  position: relative;
+  margin-top: auto;
+  width: 30vh;
   height: auto;
+  display: block;
+  margin: auto;
 }

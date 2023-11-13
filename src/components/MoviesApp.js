@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MoviesList from './MoviesList';
 
 const MoviesApp = () => {
@@ -29,18 +29,32 @@ const MoviesApp = () => {
     },
   ]);
 
+  const getMovieRequest = async () => {
+    const url = 'http://www.omdbapi.com/?s=avengers&apikey=c003a867';
+
+    const response = await fetch(url);
+
+    const responseJSON = await response.json();
+
+    console.log(responseJSON);
+
+    setMovies(responseJSON.Search);
+  };
+
+  useEffect(() => {
+    getMovieRequest();
+  }, []);
+
   return (
     <>
       <h2>MOVIES APP</h2>
       <p>
         Haciendo peticiones a una API accedemos a una base de datos de
         películas.
-        <br />
-        <br />
+      </p>
+      <p>
         De esta base de datos sacamos los posters de las películas cuyo título
         coincide con la petición del usuario.
-        <br />
-        <br />
       </p>
 
       <div>
