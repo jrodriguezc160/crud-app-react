@@ -25,6 +25,8 @@ const MoviesApp = () => {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
+/* Métodos originales para el manejo del click en los elementos:
+
   const addFavouriteMovie = (movie) => {
     const isDuplicate = favourites.some(
       (favouriteMovie) => favouriteMovie.imdbID === movie.imdbID
@@ -42,6 +44,25 @@ const MoviesApp = () => {
     );
 
     setFavourites(newFavouriteList);
+  }; */
+
+  const handleFavouritesClick = (movie) => {
+    // Verifica si la película ya está en la lista de favoritos
+    const isFavorite = favourites.some(
+      (favoriteMovie) => favoriteMovie.imdbID === movie.imdbID
+    );
+
+    if (isFavorite) {
+      // Si la película ya es un favorito, la eliminamos de la lista
+      const newFavouriteList = favourites.filter(
+        (favorite) => favorite.imdbID !== movie.imdbID
+      );
+      setFavourites(newFavouriteList);
+    } else {
+      // Si la película no es un favorito, la añadimos a la lista
+      const newFavouriteList = [...favourites, movie];
+      setFavourites(newFavouriteList);
+    }
   };
 
   return (
@@ -70,12 +91,12 @@ const MoviesApp = () => {
         </div>
         <MoviesList
           movies={movies}
-          handleFavouritesClick={addFavouriteMovie}
+          handleFavouritesClick={handleFavouritesClick}
           lista={'busqueda'}
         />
         <MoviesList
           movies={favourites}
-          handleFavouritesClick={removeFavouriteMovie}
+          handleFavouritesClick={handleFavouritesClick}
           lista={'favoritos'}
         />
       </div>
