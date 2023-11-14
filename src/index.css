@@ -482,7 +482,7 @@ BÚSQUEDA DE PELÍCULAS */
   margin: 0;
   display: flex;
   overflow-x: auto;
-  height: 450px;
+  height: 400px;
   align-items: center;
 }
 
@@ -533,7 +533,7 @@ BÚSQUEDA DE PELÍCULAS */
 
   .light {
     opacity: 0;
-    filter: blur(20px);
+    filter: blur(15px);
     width: 25vh;
     height: auto;
     position: absolute;
