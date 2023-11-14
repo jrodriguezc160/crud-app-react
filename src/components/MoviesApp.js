@@ -31,9 +31,7 @@ const MoviesApp = () => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
-        <p style={{ top: '48vh', position: 'absolute', zIndex: '48' }}>
-          Resultados:
-        </p>
+
       </div>
 
       <div>

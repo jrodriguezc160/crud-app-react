@@ -4,6 +4,12 @@ import { IconoCorazon } from './Iconos';
 const MoviesList = (props) => {
   return (
     <>
+      <p
+        className="content"
+        style={{ top: '44vh', position: 'absolute', zIndex: '48' }}
+      >
+        Hay {props.movies.length} resultados:
+      </p>
       <div className="movies-container">
         <div className="margen-manual">&nbsp;</div>
         {props.movies.map((movie, index) => (
