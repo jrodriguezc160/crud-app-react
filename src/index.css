@@ -499,6 +499,20 @@ BÚSQUEDA DE PELÍCULAS */
   overflow: visible;
 }
 
+.me-gusta svg {
+  color: whitesmoke;
+  opacity: 0;
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-out;
+}
+
 .movie-item:hover {
   transform: scale(1.1);
   margin: 1rem;
@@ -507,6 +521,23 @@ BÚSQUEDA DE PELÍCULAS */
   .light {
     opacity: 0.9;
     z-index: -99;
+  }
+
+  .me-gusta svg {
+    opacity: 100%;
+  }
+
+  .me-gusta:hover svg {
+    transform: scale(1.1);
+    fill: whitesmoke;
+    filter: drop-shadow(0 0 5px #00000075);
+  }
+
+  .me-gusta svg.active {
+    transform: scale(1.2);
+    fill: red;
+    color: red;
+    filter: drop-shadow(0 0 5px #ff000075);
   }
 }
 
