@@ -32,45 +32,25 @@ const MoviesApp = () => {
 
   return (
     <>
-      <div className="content">
-        <div style={{ height: '50%', display: 'flex' }}>
-          <div style={{ width: '50%' }}>
-            <MovieListHeading
-              heading="MOVIES"
-              body={
-                <>
-                  <p>
-                    Haciendo peticiones a una API accedemos a una base de datos
-                    de películas. De esta base de datos sacamos los posters de
-                    las películas cuyo título coincide con la petición del
-                    usuario.
-                  </p>
-                </>
-              }
-            />
-            <MovieSearchBox
-              searchValue={searchValue}
-              setSearchValue={setSearchValue}
-            />
-          </div>
-          <div style={{ width: '50%' }}>
-            <MovieListHeading
-              heading="FAVORITOS"
-              body={
-                <>
-                  <p>
-                    Busca cualquier película y, si encuentras alguna que te
-                    guste, haz click en el icono del corazón para añadirla a
-                    favoritos.
-                  </p>
-                </>
-              }
-            />
-          </div>
+      <div style={{ display: 'block', padding: '0' }}>
+        <div className="content" style={{marginBottom:"0"}}>
+          <MovieListHeading
+            heading="MOVIES"
+            body={
+              <>
+                <p>
+                  Haciendo peticiones a una API accedemos a una base de datos de
+                  películas. De esta base de datos sacamos los posters de las
+                  películas cuyo título coincide con la petición del usuario.
+                </p>
+              </>
+            }
+          />
+          <MovieSearchBox
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
         </div>
-      </div>
-
-      <div>
         <MoviesList movies={movies} handleFavouritesClick={addFavouriteMovie} />
       </div>
     </>
