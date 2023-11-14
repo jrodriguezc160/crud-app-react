@@ -26,8 +26,14 @@ const MoviesApp = () => {
   }, [searchValue]);
 
   const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
+    const isDuplicate = favourites.some(
+      (favouriteMovie) => favouriteMovie.imdbID === movie.imdbID
+    );
+
+    if (!isDuplicate) {
+      const newFavouriteList = [...favourites, movie];
+      setFavourites(newFavouriteList);
+    }
   };
 
   const removeFavouriteMovie = (movie) => {
@@ -66,7 +72,7 @@ const MoviesApp = () => {
           movies={movies}
           handleFavouritesClick={addFavouriteMovie}
           lista={'busqueda'}
-          />
+        />
         <MoviesList
           movies={favourites}
           handleFavouritesClick={removeFavouriteMovie}
