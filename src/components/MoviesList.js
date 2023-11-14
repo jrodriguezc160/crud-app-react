@@ -38,11 +38,13 @@ const MoviesList = (props) => {
                   className="me-gusta"
                   onClick={() => props.handleFavouritesClick(movie)}
                 >
-                  {props.lista === 'busqueda' ? (
-                    <IconoCorazon ancho="16px" alto="16px" />
-                  ) : (
-                    <IconoCorazonFavoritos ancho="16px" alto="16px" />
-                  )}
+                  {
+                    props.lista === 'busqueda' ? (
+                      <IconoCorazon ancho="16px" alto="16px" />
+                    ) : (
+                      <IconoCorazonFavoritos ancho="16px" alto="16px"/>
+                    )
+                  }
                 </div>
                 <img src={movie.Poster} alt="Image1" className="image" />
                 <img src={movie.Poster} alt="" className="light" />
