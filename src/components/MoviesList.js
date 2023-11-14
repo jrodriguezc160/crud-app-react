@@ -31,34 +31,42 @@ const MoviesList = (props) => {
 
         <div className="movies-container">
           <div className="margen-manual">&nbsp;</div>
-          {props.movies.map((movie, index) => (
-            <div className="movie-item" key={index}>
-              <div className="ambilight">
-                <div
-                  className="me-gusta"
-                  onClick={() => props.handleFavouritesClick(movie)}
-                >
-                  <IconoCorazon
-                    ancho="16px"
-                    alto="16px"
-                    esFavorito={props.favourites.some(
-                      (favourite) => favourite.imdbID === movie.imdbID
-                    )}
+          {props.movies.length === 0 ? (
+            <img
+              alt="Imagen vacío"
+              style={{ width: 'auto', height: '100%', margin: 'auto' }}
+              src="/no-content.png"
+            />
+          ) : (
+            props.movies.map((movie, index) => (
+              <div className="movie-item" key={index}>
+                <div className="ambilight">
+                  <div
+                    className="me-gusta"
+                    onClick={() => props.handleFavouritesClick(movie)}
+                  >
+                    <IconoCorazon
+                      ancho="16px"
+                      alto="16px"
+                      esFavorito={props.favourites.some(
+                        (favourite) => favourite.imdbID === movie.imdbID
+                      )}
+                    />
+                  </div>
+                  <img
+                    src={movie.Poster}
+                    alt="Displayed first"
+                    className="image"
+                  />
+                  <img
+                    src={movie.Poster}
+                    alt="Ambilight effect"
+                    className="light"
                   />
                 </div>
-                <img
-                  src={movie.Poster}
-                  alt="Displayed first"
-                  className="image"
-                />
-                <img
-                  src={movie.Poster}
-                  alt="Ambilight effect"
-                  className="light"
-                />
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </>
