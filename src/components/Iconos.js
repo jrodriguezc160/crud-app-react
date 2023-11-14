@@ -131,6 +131,7 @@ export function IconoSol(props) {
 
 export function IconoCorazon(props) {
   const [activo, setActivo] = useState(false);
+  const [esFavorito, setEsFavorito] = useState(false);
 
   function animacionCorazon() {
     setActivo(true);
@@ -138,6 +139,8 @@ export function IconoCorazon(props) {
     setTimeout(() => {
       setActivo(false);
     }, 500);
+
+    esFavorito ? setEsFavorito(false) : setEsFavorito(true);
   }
 
   return (
@@ -146,7 +149,7 @@ export function IconoCorazon(props) {
       width={props.ancho}
       height={props.alto}
       viewBox="0 0 24 24"
-      fill="none"
+      fill={`${esFavorito  ? 'whitesmoke' : 'none'}`}
       stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
