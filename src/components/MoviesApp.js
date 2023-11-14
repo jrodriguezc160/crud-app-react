@@ -24,26 +24,13 @@ const MoviesApp = () => {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
-/* Métodos originales para el manejo del click en los elementos:
-
-  const addFavouriteMovie = (movie) => {
-    const isDuplicate = favourites.some(
-      (favouriteMovie) => favouriteMovie.imdbID === movie.imdbID
+  useEffect(() => {
+    const movieFavourites = JSON.parse(
+      localStorage.getItem('react-movie-app-favourites')
     );
 
-    if (!isDuplicate) {
-      const newFavouriteList = [...favourites, movie];
-      setFavourites(newFavouriteList);
-    }
-  };
-
-  const removeFavouriteMovie = (movie) => {
-    const newFavouriteList = favourites.filter(
-      (favourite) => favourite.imdbID !== movie.imdbID
-    );
-
-    setFavourites(newFavouriteList);
-  }; */
+    setFavourites(movieFavourites);
+  });
 
   const handleFavouritesClick = (movie) => {
     // Verifica si la película ya está en la lista de favoritos
@@ -57,11 +44,17 @@ const MoviesApp = () => {
         (favorite) => favorite.imdbID !== movie.imdbID
       );
       setFavourites(newFavouriteList);
+      saveToLocalStorage(newFavouriteList);
     } else {
       // Si la película no es un favorito, la añadimos a la lista
       const newFavouriteList = [...favourites, movie];
       setFavourites(newFavouriteList);
+      saveToLocalStorage(newFavouriteList);
     }
+  };
+
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
   };
 
   return (
