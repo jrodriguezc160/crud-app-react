@@ -6,7 +6,6 @@ import MovieSearchBox from './MovieSearchBox';
 const MoviesApp = () => {
   const [movies, setMovies] = useState([]);
   const [favourites, setFavourites] = useState([]);
-
   const [searchValue, setSearchValue] = useState('');
 
   const getMovieRequest = async () => {
@@ -93,11 +92,13 @@ const MoviesApp = () => {
           movies={movies}
           handleFavouritesClick={handleFavouritesClick}
           lista={'busqueda'}
+          favourites={favourites}
         />
         <MoviesList
           movies={favourites}
           handleFavouritesClick={handleFavouritesClick}
           lista={'favoritos'}
+          favourites={favourites}
         />
       </div>
     </>
