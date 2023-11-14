@@ -11,7 +11,8 @@ function App() {
       <NavBar />
       <DarkTheme btn=".dark-theme-btn" classDark="dark-mode" />
       <div className="content-x-nomargin">
-        <h1 className='content'>Ejercicios con React</h1>
+        <h1 className="content">Ejercicios con React</h1>
+        <br />
         <hr />
         <MoviesApp />
       </div>

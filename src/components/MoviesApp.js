@@ -26,12 +26,43 @@ const MoviesApp = () => {
   return (
     <>
       <div className="content">
-        <MovieListHeading heading="MOVIES" />
-        <MovieSearchBox
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-        />
+        <div style={{ height: '50%', display: 'flex' }}>
+          <div style={{ width: '50%' }}>
+            <MovieListHeading
+              heading="MOVIES"
+              body={
+                <>
+                  <p>
+                    Haciendo peticiones a una API accedemos a una base de datos
+                    de películas. De esta base de datos sacamos los posters de
+                    las películas cuyo título coincide con la petición del
+                    usuario.
+                  </p>
+                  <p>
+                    Busca cualquier película y, si encuentras alguna que te
+                    guste, haz click en el icono del corazón para añadirla a
+                    favoritos.
+                  </p>
+                </>
+              }
+            />
+          </div>
+          <div style={{ width: '50%' }}>
+            <MovieListHeading
+              heading="&nbsp;"
+              body={
+                <>
+                  {' '}
 
+                </>
+              }
+            />
+            <MovieSearchBox
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+            />
+          </div>
+        </div>
       </div>
 
       <div>

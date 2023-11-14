@@ -6,7 +6,7 @@ const MoviesList = (props) => {
     <>
       <p
         className="content"
-        style={{ top: '44vh', position: 'absolute', zIndex: '48' }}
+        style={{ top: '53vh', position: 'absolute', zIndex: '48' }}
       >
         Hay {props.movies.length} resultados:
       </p>
