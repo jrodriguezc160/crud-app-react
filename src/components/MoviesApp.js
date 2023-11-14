@@ -30,10 +30,21 @@ const MoviesApp = () => {
     setFavourites(newFavouriteList);
   };
 
+  const removeFavouriteMovie = (movie) => {
+    const newFavouriteList = favourites.filter(
+      (favourite) => favourite.imdbID !== movie.imdbID
+    );
+
+    setFavourites(newFavouriteList);
+  };
+
   return (
     <>
       <div style={{ display: 'block', padding: '0' }}>
-        <div className="content" style={{marginBottom:"0"}}>
+        <div
+          className="content"
+          style={{ marginBottom: '0', paddingBottom: '0' }}
+        >
           <MovieListHeading
             heading="MOVIES"
             body={
@@ -51,7 +62,16 @@ const MoviesApp = () => {
             setSearchValue={setSearchValue}
           />
         </div>
-        <MoviesList movies={movies} handleFavouritesClick={addFavouriteMovie} />
+        <MoviesList
+          movies={movies}
+          handleFavouritesClick={addFavouriteMovie}
+          lista={'busqueda'}
+          />
+        <MoviesList
+          movies={favourites}
+          handleFavouritesClick={removeFavouriteMovie}
+          lista={'favoritos'}
+        />
       </div>
     </>
   );
