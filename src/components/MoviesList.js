@@ -15,7 +15,7 @@ const MoviesList = (props) => {
         {props.movies.map((movie, index) => (
           <div className="movie-item" key={index}>
             <div className="ambilight">
-              <div className="me-gusta" onClick={IconoCorazon}>
+              <div className="me-gusta">
                 <IconoCorazon ancho="16px" alto="16px" />
               </div>
               <img src={movie.Poster} alt="Image1" className="image" />
