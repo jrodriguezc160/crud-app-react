@@ -503,8 +503,8 @@ BÚSQUEDA DE PELÍCULAS */
   color: whitesmoke;
   opacity: 0;
   position: absolute;
-  top: 1vh;
-  right: 1vh;
+  top: 2vh;
+  right: 2vh;
   margin: 0;
   padding: 0;
   display: flex;
