@@ -9,14 +9,22 @@ const MoviesApp = () => {
   const [searchValue, setSearchValue] = useState('');
 
   const getMovieRequest = async () => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=c003a867`;
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNmRiY2QzMzRiYWI5MjViMjg5MTEwNDY1YTg4MDZkNiIsInN1YiI6IjY1NGRmM2I0NDFhNTYxMzM2YzVmYjU2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HY7VrsbpUBeQtEhGzZC1NYNRrU29_KsLVW-NmyH_8EU',
+      },
+    };
 
-    const response = await fetch(url);
-
+    // Para las películas, su información y su id
+    const url = `https://api.themoviedb.org/3/search/movie?query=${searchValue}&include_adult=false&language=es-ES&page=1`;
+    const response = await fetch(url, options);
     const responseJSON = await response.json();
 
-    if (responseJSON.Search) {
-      setMovies(responseJSON.Search);
+    if (responseJSON.results) {
+      setMovies(responseJSON.results);
     }
   };
 

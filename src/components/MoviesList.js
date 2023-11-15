@@ -27,7 +27,8 @@ const MoviesList = (props) => {
       >
         <div className="modal" onClick={(e) => e.stopPropagation()}>
           <div className="modal-info">
-            <h2>{selectedMovie.Title}</h2>
+            <h2>{selectedMovie.title}</h2>
+            <p>{selectedMovie.overview}</p>
           </div>
         </div>
       </div>
@@ -84,7 +85,7 @@ const MoviesList = (props) => {
                         ancho="16px"
                         alto="16px"
                         esFavorito={props.favourites.some(
-                          (favourite) => favourite.imdbID === movie.imdbID
+                          (favourite) => favourite.id === movie.id
                         )}
                       />
                     </div>
@@ -93,12 +94,12 @@ const MoviesList = (props) => {
                     </div>
                   </div>
                   <img
-                    src={movie.Poster}
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt="Displayed first"
                     className="image"
                   />
                   <img
-                    src={movie.Poster}
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt="Ambilight effect"
                     className="light"
                   />
