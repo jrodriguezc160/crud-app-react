@@ -71,6 +71,7 @@ const MoviesList = (props) => {
               alt="Imagen vacío"
               style={{ width: 'auto', height: '100%', margin: 'auto' }}
               src="/no-content.png"
+              className='no-results-img'
             />
           ) : (
             props.movies.map((movie, index) => (

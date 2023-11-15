@@ -476,6 +476,11 @@ svg {
   text-shadow: 0 0 3px lightblue;
 }
 
+.dark-mode .content .no-results-img img {
+  filter: invert(1);
+}
+
+
 /* Estilos para la aplicación de
 BÚSQUEDA DE PELÍCULAS */
 

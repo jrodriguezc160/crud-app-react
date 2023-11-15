@@ -43,13 +43,13 @@ const MoviesApp = () => {
   const handleFavouritesClick = (movie) => {
     // Verifica si la película ya está en la lista de favoritos
     const isFavorite = favourites.some(
-      (favoriteMovie) => favoriteMovie.imdbID === movie.imdbID
+      (favoriteMovie) => favoriteMovie.id === movie.id
     );
 
     if (isFavorite) {
       // Si la película ya es un favorito, la eliminamos de la lista
       const newFavouriteList = favourites.filter(
-        (favorite) => favorite.imdbID !== movie.imdbID
+        (favorite) => favorite.id !== movie.id
       );
       setFavourites(newFavouriteList);
       saveToLocalStorage(newFavouriteList);
