@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IconoCorazon, IconoMax } from './Iconos';
 
 const MoviesList = (props) => {
-  const movieInfo = (movie) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const openModal = (movie) => {
+    setSelectedMovie(movie);
+    setModalOpen(true);
+  };
+
+  const closeModal = (movie) => {
+    setModalOpen(false);
+    setSelectedMovie(null);
+  };
+
+  // Movie Info
+  const movieInfo = () => {
+    if (!selectedMovie || !modalOpen) return null;
     console.log('CLICK');
+
     return (
-      <div className="screen">
-        <div className="modal">
-          <div className="modal-img">
-            <img src={movie.Poster} alt="Displayed first" className="image" />
-            <img src={movie.Poster} alt="Ambilight effect" className="light" />
-          </div>
+      <div
+        className={`screen ${modalOpen ? 'visible' : ''}`}
+        onClick={closeModal}
+      >
+        <div className="modal" onClick={(e) => e.stopPropagation()}>
           <div className="modal-info">
-            <h2>{movie.title}</h2>
-            <h4>{movie.director}</h4>
-            <p>
-              {movie.year} · {movie.actors} · IMDB id: {movie.imdbID}
-            </p>
-            <p>{movie.synopsis}</p>
+            <h2>{selectedMovie.Title}</h2>
           </div>
         </div>
       </div>
@@ -26,6 +36,8 @@ const MoviesList = (props) => {
 
   return (
     <>
+      {movieInfo()}
+
       <div
         style={{
           margin: '0',
@@ -61,11 +73,7 @@ const MoviesList = (props) => {
             />
           ) : (
             props.movies.map((movie, index) => (
-              <div
-                className="movie-item"
-                key={index}
-                onClick={() => movieInfo(movie)}
-              >
+              <div className="movie-item" key={index}>
                 <div className="ambilight">
                   <div className="iconos">
                     <div
@@ -80,10 +88,7 @@ const MoviesList = (props) => {
                         )}
                       />
                     </div>
-                    <div
-                      className="ver-info"
-                      onClick={() => movieInfo(movie)}
-                    >
+                    <div className="ver-info" onClick={() => openModal(movie)}>
                       <IconoMax ancho="16px" alto="16px" />
                     </div>
                   </div>
