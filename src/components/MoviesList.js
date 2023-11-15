@@ -1,3 +1,7 @@
+/* La clave está en dónde colocas el MoviePoster
+   también es importante saber utilizar los parámetros correspondientes
+*/
+
 import React, { useState } from 'react';
 import { IconoCorazon, IconoMax } from './Iconos';
 
@@ -28,11 +32,11 @@ const MoviesList = (props) => {
         <div className="modal" onClick={(e) => e.stopPropagation()}>
           <div className="movie-item">
             <div className="ambilight">
-            <div className="iconos">
-              <div className="ver-info" onClick={() => openModalPoster()}>
-                <IconoMax ancho="16px" alto="16px" />
+              <div className="iconos">
+                <div className="ver-info" onClick={() => openModalPoster()}>
+                  <IconoMax ancho="16px" alto="16px" />
+                </div>
               </div>
-            </div>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
                 alt="Displayed first"
@@ -54,6 +58,7 @@ const MoviesList = (props) => {
     );
   };
 
+  // Poster
   const [modalPosterOpen, setModalPosterOpen] = useState(false);
 
   const openModalPoster = (movie) => {
@@ -64,14 +69,14 @@ const MoviesList = (props) => {
     setModalPosterOpen(false);
   };
 
-  // Movie Info
+  // Movie Poster
   const moviePoster = () => {
     console.log('Abriendo poster...');
 
     return (
       <div
-        className={`screen ${modalOpen ? 'visible' : ''}`}
-        onClick={closeModal}
+        className={`screen ${modalPosterOpen ? 'visible' : ''}`}
+        onClick={closeModalPoster}
       >
         <div className="modal" onClick={(e) => e.stopPropagation()}>
           <div className="ambilight">
