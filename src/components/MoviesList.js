@@ -51,6 +51,10 @@ const MoviesList = (props) => {
           </div>
           <div className="modal-info">
             <h2 style={{ top: '0' }}>{selectedMovie.title}</h2>
+            <p>
+              {selectedMovie.original_title} ·{' '}
+              {selectedMovie.release_date.slice(0, 4)}
+            </p>
             <p>{selectedMovie.overview}</p>
           </div>
         </div>
@@ -127,7 +131,7 @@ const MoviesList = (props) => {
 
         <div className="movies-container">
           <div className="margen-manual">&nbsp;</div>
-          {props.movies.length === 0 ? (
+          {!props.movies || props.movies.length === 0 ? (
             <img
               alt="Imagen vacío"
               style={{ width: 'auto', height: '100%', margin: 'auto' }}
@@ -135,6 +139,7 @@ const MoviesList = (props) => {
               className="no-results-img"
             />
           ) : (
+            props.movies &&
             props.movies.map((movie, index) => (
               <div className="movie-item" key={index}>
                 <div className="ambilight">
@@ -146,9 +151,12 @@ const MoviesList = (props) => {
                       <IconoCorazon
                         ancho="16px"
                         alto="16px"
-                        esFavorito={props.favourites.some(
-                          (favourite) => favourite.id === movie.id
-                        )}
+                        esFavorito={
+                          props.favourites &&
+                          props.favourites.some(
+                            (favourite) => favourite.id === movie.id
+                          )
+                        }
                       />
                     </div>
                     <div className="ver-info" onClick={() => openModal(movie)}>
