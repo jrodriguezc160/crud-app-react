@@ -26,8 +26,22 @@ const MoviesList = (props) => {
         onClick={closeModal}
       >
         <div className="modal" onClick={(e) => e.stopPropagation()}>
+          <div className="movie-item">
+            <div className="ambilight">
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+                alt="Displayed first"
+                className="image"
+              />
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+                alt="Ambilight effect"
+                className="light"
+              />
+            </div>
+          </div>
           <div className="modal-info">
-            <h2>{selectedMovie.title}</h2>
+            <h2 style={{top:"0"}}>{selectedMovie.title}</h2>
             <p>{selectedMovie.overview}</p>
           </div>
         </div>
@@ -71,7 +85,7 @@ const MoviesList = (props) => {
               alt="Imagen vacío"
               style={{ width: 'auto', height: '100%', margin: 'auto' }}
               src="/no-content.png"
-              className='no-results-img'
+              className="no-results-img"
             />
           ) : (
             props.movies.map((movie, index) => (

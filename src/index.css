@@ -480,7 +480,6 @@ svg {
   filter: invert(1);
 }
 
-
 /* Estilos para la aplicación de
 BÚSQUEDA DE PELÍCULAS */
 
@@ -646,13 +645,34 @@ label:before {
 .modal {
   position: relative;
   margin: auto;
-  max-width: 75vw;
-  max-height: 75vh;
+  width: 75vw;
+  height: 50vh;
+  max-height: fit-content;
   z-index: 92;
   border: 1px solid lightgrey;
   border-radius: 0.5rem;
   background-color: whitesmoke;
   box-sizing: border-box;
-  padding: 5vh 5vw;
+  padding: 5vh 2vw 5vh 1vw;
   transition: all 0.3s ease-out;
+  display: flex;
+  align-items: center;
+}
+
+.modal > .movie-item {
+  margin-left: 1vw;
+  margin-right: 2vw;
+}
+
+.modal > .movie-item:hover {
+  transform: scale(1);
+
+  .light {
+    opacity: 1;
+    z-index: -99;
+  }
+}
+
+.modal-info {
+  position: relative;
 }
