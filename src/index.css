@@ -247,9 +247,9 @@ table {
   min-width: fit-content;
   width: 80%;
   border: 1px solid lightgrey;
+  border-radius: 0.5rem;
   border-collapse: separate;
   border-left: 0;
-  border-radius: 0.5rem;
   border-spacing: 0px;
   table-layout: fixed;
   transition: all 0.3s ease-in-out;
@@ -499,13 +499,22 @@ BÚSQUEDA DE PELÍCULAS */
   overflow: visible;
 }
 
-.me-gusta svg {
+.iconos {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.me-gusta svg,
+.ver-info svg {
   color: whitesmoke;
   opacity: 0;
-  position: absolute;
-  top: 2vh;
-  right: 2vh;
-  margin: 0;
+  margin: 0.5vh;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -516,21 +525,23 @@ BÚSQUEDA DE PELÍCULAS */
 .movie-item:hover {
   transform: scale(1.1);
   margin: 1rem;
-  cursor: pointer;
 
   .light {
     opacity: 1;
     z-index: -99;
   }
 
-  .me-gusta svg {
+  .me-gusta svg,
+  .ver-info svg {
     opacity: 100%;
   }
 
-  .me-gusta:hover svg {
+  .me-gusta:hover svg,
+  .ver-info:hover svg {
     transform: scale(1.1);
     fill: whitesmoke;
-    filter: drop-shadow(0 0 5px #00000075);
+    filter: drop-shadow(0 0 4px #000000d0);
+
   }
 
   .me-gusta svg.active {
@@ -570,8 +581,8 @@ BÚSQUEDA DE PELÍCULAS */
     filter: brightness(1.75);
     filter: contrast(1.75);
     filter: blur(17px);
-    width: 27vh;
-    height: 42vh;
+    width: 25vh;
+    height: 40vh;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -606,4 +617,26 @@ label:before {
 
 .input-con-icono {
   padding-left: calc(2rem + 16px);
+}
+
+/* Movie modal
+(mostramos la información completa de la película en un modal) */
+
+.screen {
+  position: absolute;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(25px);
+}
+
+.modal {
+  position: absolute;
+  margin: auto;
+  width: 50vw;
+  height: 50vh;
+  z-index: 99;
+  border: 1px solid lightgrey;
+  border-radius: 0.5rem;
+  background-color: whitesmoke;
 }
