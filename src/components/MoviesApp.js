@@ -30,7 +30,7 @@ const MoviesApp = () => {
     );
 
     setFavourites(movieFavourites);
-  });
+  }, []);
 
   const handleFavouritesClick = (movie) => {
     // Verifica si la película ya está en la lista de favoritos
