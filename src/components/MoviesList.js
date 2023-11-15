@@ -28,6 +28,11 @@ const MoviesList = (props) => {
         <div className="modal" onClick={(e) => e.stopPropagation()}>
           <div className="movie-item">
             <div className="ambilight">
+            <div className="iconos">
+              <div className="ver-info" onClick={() => openModalPoster()}>
+                <IconoMax ancho="16px" alto="16px" />
+              </div>
+            </div>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
                 alt="Displayed first"
@@ -41,8 +46,45 @@ const MoviesList = (props) => {
             </div>
           </div>
           <div className="modal-info">
-            <h2 style={{top:"0"}}>{selectedMovie.title}</h2>
+            <h2 style={{ top: '0' }}>{selectedMovie.title}</h2>
             <p>{selectedMovie.overview}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const [modalPosterOpen, setModalPosterOpen] = useState(false);
+
+  const openModalPoster = (movie) => {
+    setModalPosterOpen(true);
+  };
+
+  const closeModalPoster = (movie) => {
+    setModalPosterOpen(false);
+  };
+
+  // Movie Info
+  const moviePoster = () => {
+    console.log('Abriendo poster...');
+
+    return (
+      <div
+        className={`screen ${modalOpen ? 'visible' : ''}`}
+        onClick={closeModal}
+      >
+        <div className="modal" onClick={(e) => e.stopPropagation()}>
+          <div className="ambilight">
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+              alt="Displayed first"
+              className="image"
+            />
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+              alt="Ambilight effect"
+              className="light"
+            />
           </div>
         </div>
       </div>
