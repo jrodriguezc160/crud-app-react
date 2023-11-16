@@ -4,6 +4,7 @@
 
 import React, { useState } from 'react';
 import { IconoCorazon, IconoMax } from './Iconos';
+import MovieTrailer from './MovieTrailer';
 
 const MoviesList = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -71,6 +72,7 @@ const MoviesList = (props) => {
               {selectedMovie.release_date.slice(0, 4)}
             </p>
             <p>{selectedMovie.overview}</p>
+            <MovieTrailer movieID={selectedMovie.id} />
           </div>
         </div>
       </div>
