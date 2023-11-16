@@ -65,7 +65,7 @@ p {
 (hecha con listas) */
 
 .navbar {
-  z-index: 99;
+  z-index: 20;
   position: sticky;
   text-align: left;
   top: 0;

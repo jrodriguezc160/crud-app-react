@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <DarkTheme btn=".dark-theme-btn" classDark="dark-mode" />
-      <div className="content-x-nomargin" style={{marginTop: "5vh"}}>
+      <div className="content-x-nomargin" style={{marginTop: "4vh"}}>
         <h1>Ejercicios con React</h1>
         <hr />
       </div>

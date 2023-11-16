@@ -148,7 +148,7 @@ const MoviesList = (props) => {
             style={{
               top: '0',
               position: 'relative',
-              zIndex: '48',
+              zIndex: '15',
               padding: '0',
               marginTop: "0"
             }}
@@ -158,7 +158,7 @@ const MoviesList = (props) => {
         ) : (
           <h2
             className="content"
-            style={{ top: '3vh', position: 'relative', zIndex: '48' }}
+            style={{ top: '3vh', position: 'relative', zIndex: '15' }}
           >
             FAVORITOS
           </h2>
