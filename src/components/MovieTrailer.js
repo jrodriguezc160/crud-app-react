@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const MovieTrailer = (props) => {
   const [youtubeLink, setYoutubeLink] = useState(null);
+  const [error, setError] = useState();
 
   useEffect(() => {
     const options = {
@@ -32,19 +33,26 @@ const MovieTrailer = (props) => {
           );
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setError(true);
+      });
   }, [props.movieID]);
+
+  if (error) {
+    return (
+      <p>
+        <i>No se encontró un trailer oficial</i>
+      </p>
+    );
+  }
 
   return (
     <>
-      {youtubeLink ? (
-        <a href={youtubeLink} target='blank'>
+      {youtubeLink && (
+        <a href={youtubeLink} target="blank">
           <button>Ver tráiler</button>
         </a>
-      ) : (
-        <p>
-          <i>No se encontró un trailer oficial</i>
-        </p>
       )}
     </>
   );

@@ -66,26 +66,20 @@ const MoviesApp = () => {
 
   return (
     <>
-      <div style={{ display: 'block', padding: '0', margin: '0', maxHeight:"fit-content" }}>
-        <div
-          className="content"
-        >
-          <MovieListHeading
-            heading="MOVIES"
-            body={
-              <>
-                <p>
-                  Haciendo peticiones a una API accedemos a una base de datos de
-                  películas. De esta base de datos sacamos los posters de las
-                  películas cuyo título coincide con la petición del usuario.
-                </p>
-              </>
-            }
-          />
+      <div
+        style={{
+          display: 'block',
+          padding: '0',
+          margin: '0',
+          maxHeight: 'fit-content',
+        }}
+      >
+        <div className="content" style={{marginTop: "5vh"}}>
+          <MovieListHeading heading="MOVIES" body="" />
           <MovieSearchBox
             searchValue={searchValue}
             setSearchValue={setSearchValue}
-            />
+          />
         </div>
         <MoviesList
           movies={movies}

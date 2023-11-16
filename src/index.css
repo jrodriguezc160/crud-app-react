@@ -649,23 +649,40 @@ label:before {
 .modal {
   position: relative;
   margin: auto;
-  width: 75vw;
-  height: 50vh;
+  width: 70vw;
+  height: 65vh;
   max-height: fit-content;
   z-index: 92;
   border: 1px solid lightgrey;
   border-radius: 0.5rem;
   background-color: whitesmoke;
   box-sizing: border-box;
-  padding: 5vh 2vw 5vh 1vw;
+  padding: 2vw 2vw 2vw 2vw;
   transition: all 0.3s ease-out;
   display: flex;
   align-items: center;
 }
 
 .modal > .movie-item {
-  margin-left: 1vw;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  height: 100%;
   margin-right: 2vw;
+}
+
+.modal > .movie-item > .ambilight {
+  padding: 0;
+  width: 35vh;
+  height: auto;
+  margin: auto 0;
+  padding: 0;
+}
+
+.modal > .movie-item > .ambilight > .light {
+  width: 35vh;
+  height: auto;
 }
 
 .modal > .movie-item:hover {
@@ -678,6 +695,7 @@ label:before {
 }
 
 .modal-info {
+  flex: 1;
   height: 100%;
   position: relative;
   display: block;

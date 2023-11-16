@@ -72,7 +72,7 @@ const MoviesList = (props) => {
           <div className="modal-info">
             <h2 style={{ top: '0' }}>{selectedMovie.title}</h2>
             <p>
-              {selectedMovie.original_title} ·{' '}
+              <i>{selectedMovie.original_title}</i> ·{' '}
               {selectedMovie.release_date.slice(0, 4)}
             </p>
             <p>{selectedMovie.overview}</p>
