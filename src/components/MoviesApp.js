@@ -66,10 +66,9 @@ const MoviesApp = () => {
 
   return (
     <>
-      <div style={{ display: 'block', padding: '0' }}>
+      <div style={{ display: 'block', padding: '0', margin: '0', maxHeight:"fit-content" }}>
         <div
           className="content"
-          style={{ marginBottom: '0', paddingBottom: '0' }}
         >
           <MovieListHeading
             heading="MOVIES"
@@ -86,7 +85,7 @@ const MoviesApp = () => {
           <MovieSearchBox
             searchValue={searchValue}
             setSearchValue={setSearchValue}
-          />
+            />
         </div>
         <MoviesList
           movies={movies}

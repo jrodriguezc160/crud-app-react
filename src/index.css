@@ -42,12 +42,12 @@ body {
 }
 
 .content {
-  margin: 6vh 0 0 3vw;
+  margin: 2vh 0 0 3vw;
   padding: 0;
 }
 
 .content-x-nomargin {
-  margin: 6vh 0;
+  margin: 2vh 0 0 3vw;
   padding: 0;
 }
 
@@ -484,10 +484,12 @@ svg {
 BÚSQUEDA DE PELÍCULAS */
 
 .movies-container {
-  margin: 0;
+  position: relative;
+  margin: auto;
   display: flex;
   overflow-x: auto;
   height: 400px;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -587,7 +589,7 @@ BÚSQUEDA DE PELÍCULAS */
   opacity: 0;
   filter: brightness(1.75);
   filter: contrast(1.75);
-  filter: blur(17px);
+  filter: blur(12px);
   width: 25vh;
   height: 40vh;
   position: absolute;
