@@ -359,11 +359,11 @@ svg {
 }
 
 .dark-mode .dark-theme-btn {
-  background-color: #2d2d30;
+  background-color: #181818;
 }
 
 .dark-mode {
-  background-color: #1e1e1e;
+  background-color: #080808;
   color: lightgrey;
 }
 
@@ -383,7 +383,7 @@ svg {
 .dark-mode button,
 .dark-mode input,
 .dark-mode .modal {
-  background-color: #252526;
+  background-color: #181818;
   border: 1px solid #3e3e42;
   color: lightgrey;
 }
@@ -410,13 +410,13 @@ svg {
 }
 
 .dark-mode ::-webkit-scrollbar-track {
-  background-color: #2d2d30;
+  background-color: #181818;
 }
 
 .dark-mode ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-  background-color: #2d2d30;
+  background-color: #181818;
 }
 
 .dark-mode ::-webkit-scrollbar-thumb {
@@ -440,30 +440,30 @@ svg {
 .dark-mode table,
 .dark-mode th,
 .dark-mode td {
-  border-color: #3e3e42;
+  border-color: #383838;
 }
 
 .dark-mode hr {
-  background-color: #3e3e42;
+  background-color: #282828;
 }
 
 /* TH */
 .dark-mode th {
-  background-color: #2d2d30;
+  background-color: #282828;
 }
 
 .dark-mode th:hover,
 .dark-mode td:hover {
-  background-color: #3e3e42;
+  background-color: #383838;
 }
 
 /* TD */
 .dark-mode td {
-  background-color: #252526;
+  background-color: #181818;
 }
 
 .dark-mode .navbar {
-  background-color: #252526;
+  background-color: #181818;
   border-color: #3e3e42;
 }
 
@@ -476,8 +476,8 @@ svg {
   text-shadow: 0 0 3px lightblue;
 }
 
-.dark-mode .content .no-results-img img {
-  filter: invert(1);
+.dark-mode .modal {
+  background-color: #080808;
 }
 
 /* Estilos para la aplicación de
