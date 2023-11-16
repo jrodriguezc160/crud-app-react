@@ -5,6 +5,14 @@ export default function NavBar(props) {
     <div className="navbar">
       <ul>
         <li>
+          <a href="/index.html">
+            <img
+              src="/logo512.png"
+              style={{ width: '1.5vw', height: '1.5vw' }}
+            />
+          </a>
+        </li>
+        <li>
           <a href="../../public/index.html">Inicio</a>
         </li>
         <li>
@@ -25,13 +33,7 @@ export default function NavBar(props) {
             Curso React
           </a>
         </li>
-        <li
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <li>
           <MovieSearchBox
             searchValue={props.searchValue}
             setSearchValue={props.setSearchValue}

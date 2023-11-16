@@ -2,7 +2,7 @@ import React from 'react';
 
 const MovieSearchBox = (props) => {
   return (
-    <div>
+    <div style={{ height: 'fit-content', padding: "0" }}>
       <label>
         <input
           placeholder="ej. Avengers"

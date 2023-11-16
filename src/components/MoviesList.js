@@ -160,7 +160,7 @@ const MoviesList = (props) => {
             className="content"
             style={{ top: '3vh', position: 'relative', zIndex: '15' }}
           >
-            FAVORITOS
+            Favoritos
           </h2>
         )}
 
