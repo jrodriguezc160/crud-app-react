@@ -81,15 +81,18 @@ const MoviesList = (props) => {
   const [modalPosterOpen, setModalPosterOpen] = useState(false);
 
   const openModalPoster = (movie) => {
+    setSelectedMovie(movie);
     setModalPosterOpen(true);
   };
 
   const closeModalPoster = (movie) => {
     setModalPosterOpen(false);
+    setSelectedMovie(null);
   };
 
   // Movie Poster
   const moviePoster = () => {
+    if (!selectedMovie || !modalPosterOpen) return null;
     console.log('Abriendo poster...');
 
     return (
@@ -97,19 +100,17 @@ const MoviesList = (props) => {
         className={`screen ${modalPosterOpen ? 'visible' : ''}`}
         onClick={closeModalPoster}
       >
-        <div className="modal" onClick={(e) => e.stopPropagation()}>
-          <div className="ambilight">
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
-              alt="Displayed first"
-              className="image"
-            />
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
-              alt="Ambilight effect"
-              className="light"
-            />
-          </div>
+        <div className="ambilight-modal" onClick={(e) => e.stopPropagation()}>
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+            alt="Displayed first"
+            className="image"
+          />
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+            alt="Ambilight effect"
+            className="light"
+          />
         </div>
       </div>
     );
@@ -118,6 +119,7 @@ const MoviesList = (props) => {
   return (
     <>
       {movieInfo()}
+      {moviePoster()}
 
       <div
         style={{
@@ -147,12 +149,17 @@ const MoviesList = (props) => {
         <div className="movies-container">
           <div className="margen-manual">&nbsp;</div>
           {!props.movies || props.movies.length === 0 ? (
-            <img
-              alt="Imagen vacío"
-              style={{ width: 'auto', height: '100%', margin: 'auto' }}
-              src="/no-content.png"
-              className="no-results-img"
-            />
+            <div
+              style={{
+                position: 'relative',
+                margin: 'auto',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <p>¡Vaya! Parece que no hay nada por aquí...</p>
+            </div>
           ) : (
             props.movies &&
             props.movies.map((movie, index) => (
