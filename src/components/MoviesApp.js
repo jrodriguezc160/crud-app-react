@@ -77,7 +77,7 @@ const MoviesApp = () => {
           maxHeight: 'fit-content',
         }}
       >
-        <div className="content" style={{ marginTop: '5vh' }}>
+        <div className="content" style={{ marginTop: '0', marginBottom: "0" }}>
           <MovieListHeading heading={searchValue} body="" />
         </div>
         <MoviesList

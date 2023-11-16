@@ -146,10 +146,11 @@ const MoviesList = (props) => {
           <p
             className="content"
             style={{
-              top: '3vh',
+              top: '0',
               position: 'relative',
               zIndex: '48',
               padding: '0',
+              marginTop: "0"
             }}
           >
             Hay {props.movies.length} resultados:
