@@ -33,6 +33,21 @@ const MoviesList = (props) => {
           <div className="movie-item">
             <div className="ambilight">
               <div className="iconos">
+                <div
+                  className="me-gusta"
+                  onClick={() => props.handleFavouritesClick(selectedMovie)}
+                >
+                  <IconoCorazon
+                    ancho="16px"
+                    alto="16px"
+                    esFavorito={
+                      props.favourites &&
+                      props.favourites.some(
+                        (favourite) => favourite.id === selectedMovie.id
+                      )
+                    }
+                  />
+                </div>
                 <div className="ver-info" onClick={() => openModalPoster()}>
                   <IconoMax ancho="16px" alto="16px" />
                 </div>
@@ -142,27 +157,30 @@ const MoviesList = (props) => {
             props.movies &&
             props.movies.map((movie, index) => (
               <div className="movie-item" key={index}>
-                <div className="ambilight">
-                  <div className="iconos">
-                    <div
-                      className="me-gusta"
-                      onClick={() => props.handleFavouritesClick(movie)}
-                    >
-                      <IconoCorazon
-                        ancho="16px"
-                        alto="16px"
-                        esFavorito={
-                          props.favourites &&
-                          props.favourites.some(
-                            (favourite) => favourite.id === movie.id
-                          )
-                        }
-                      />
-                    </div>
-                    <div className="ver-info" onClick={() => openModal(movie)}>
-                      <IconoMax ancho="16px" alto="16px" />
-                    </div>
+                <div className="iconos">
+                  <div
+                    className="me-gusta"
+                    onClick={() => props.handleFavouritesClick(movie)}
+                  >
+                    <IconoCorazon
+                      ancho="16px"
+                      alto="16px"
+                      esFavorito={
+                        props.favourites &&
+                        props.favourites.some(
+                          (favourite) => favourite.id === movie.id
+                        )
+                      }
+                    />
                   </div>
+                  <div
+                    className="ver-info"
+                    onClick={() => openModalPoster(movie)}
+                  >
+                    <IconoMax ancho="16px" alto="16px" />
+                  </div>
+                </div>
+                <div className="ambilight" onClick={() => openModal(movie)}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt="Displayed first"
