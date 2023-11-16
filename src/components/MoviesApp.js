@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MoviesList from './MoviesList';
 import MovieListHeading from './MovieListHeading';
 import MovieSearchBox from './MovieSearchBox';
+import NavBar from './NavBar';
 
 const MoviesApp = () => {
   const [movies, setMovies] = useState([]);
@@ -66,6 +67,8 @@ const MoviesApp = () => {
 
   return (
     <>
+      <NavBar searchValue={searchValue} setSearchValue={setSearchValue} />
+
       <div
         style={{
           display: 'block',
@@ -74,12 +77,8 @@ const MoviesApp = () => {
           maxHeight: 'fit-content',
         }}
       >
-        <div className="content" style={{marginTop: "5vh"}}>
-          <MovieListHeading heading="MOVIES" body="" />
-          <MovieSearchBox
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />
+        <div className="content" style={{ marginTop: '5vh' }}>
+          <MovieListHeading heading={searchValue} body="" />
         </div>
         <MoviesList
           movies={movies}

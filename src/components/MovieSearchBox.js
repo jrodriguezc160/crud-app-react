@@ -3,7 +3,7 @@ import React from 'react';
 const MovieSearchBox = (props) => {
   return (
     <div>
-      <label className='label-con-icono'>
+      <label>
         <input
           placeholder="ej. Avengers"
           value={props.value}

@@ -1,4 +1,6 @@
-export default function NavBar() {
+import MovieSearchBox from './MovieSearchBox';
+
+export default function NavBar(props) {
   return (
     <div className="navbar">
       <ul>
@@ -22,6 +24,18 @@ export default function NavBar() {
           >
             Curso React
           </a>
+        </li>
+        <li
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <MovieSearchBox
+            searchValue={props.searchValue}
+            setSearchValue={props.setSearchValue}
+          />
         </li>
       </ul>
     </div>

@@ -8,9 +8,8 @@ import MoviesApp from './components/MoviesApp';
 function App() {
   return (
     <>
-      <NavBar />
       <DarkTheme btn=".dark-theme-btn" classDark="dark-mode" />
-      <div className="content-x-nomargin">
+      <div className="content-x-nomargin" style={{marginTop: "5vh"}}>
         <h1>Ejercicios con React</h1>
         <hr />
       </div>
