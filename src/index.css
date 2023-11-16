@@ -57,6 +57,10 @@ hr {
   background-color: lightgrey;
 }
 
+p {
+  line-height: 18px;
+}
+
 /* Barra de navegación
 (hecha con listas) */
 
@@ -67,10 +71,9 @@ hr {
   top: 0;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 9vh;
   width: 100%;
-  background-color: whitesmoke;
-  border: 1px solid lightgrey;
-  border-top: 0;
+  background: linear-gradient(white, rgba(255, 255, 255, 0.7), #ffffff00);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -463,8 +466,7 @@ svg {
 }
 
 .dark-mode .navbar {
-  background-color: #181818;
-  border-color: #3e3e42;
+  background: linear-gradient(#080808, #080808c4, #08080800);
 }
 
 .dark-mode .navbar a {
