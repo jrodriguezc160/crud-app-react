@@ -541,6 +541,23 @@ BÚSQUEDA DE PELÍCULAS */
   transition: all 0.3s ease-out;
 }
 
+.cerrar-modal svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 2vw;
+  color: whitesmoke;
+  transition: all 0.3s ease-out;
+}
+
+.cerrar-modal:hover svg {
+  opacity: 100%;
+  transform: scale(1.1);
+  fill: whitesmoke;
+  filter: drop-shadow(0 0 4px #000000d0);
+  cursor: pointer;
+}
+
 .movie-item:hover {
   transform: scale(1.1);
   margin: 1rem;

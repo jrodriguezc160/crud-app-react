@@ -1,8 +1,15 @@
 import React from 'react';
 import MovieTrailer from './MovieTrailer';
-import { IconoCorazon, IconoMax } from './Iconos';
+import { IconoCerrar, IconoCorazon, IconoMax } from './Iconos';
 
-const MovieInfo = ({ selectedMovie, modalOpen, favourites, handleFavouritesClick, closeModal, openModalPoster }) => {
+const MovieInfo = ({
+  selectedMovie,
+  modalOpen,
+  favourites,
+  handleFavouritesClick,
+  closeModal,
+  openModalPoster,
+}) => {
   if (!selectedMovie || !modalOpen) return null;
   console.log('Abriendo la información de la película...');
 
@@ -57,6 +64,9 @@ const MovieInfo = ({ selectedMovie, modalOpen, favourites, handleFavouritesClick
           </p>
           <p>{selectedMovie.overview}</p>
           <MovieTrailer movieID={selectedMovie.id} />
+        </div>
+        <div className="cerrar-modal" onClick={() => closeModal()}>
+          <IconoCerrar ancho="16px" alto="16px" />
         </div>
       </div>
     </div>
