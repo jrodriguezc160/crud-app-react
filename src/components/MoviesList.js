@@ -1,91 +1,25 @@
-/* La clave está en dónde colocas el MoviePoster
-   también es importante saber utilizar los parámetros correspondientes
-*/
-
 import React, { useState } from 'react';
 import { IconoCorazon, IconoMax } from './Iconos';
-import MovieTrailer from './MovieTrailer';
+import MovieInfo from './MovieInfo';
+import MoviePoster from './MoviePoster';
 
 const MoviesList = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [selectedMoviePoster, setSelectedMoviePoster] = useState(null);
+  const [modalPosterOpen, setModalPosterOpen] = useState(false);
 
   const openModal = (movie) => {
     setSelectedMovie(movie);
     setModalOpen(true);
   };
 
-  const closeModal = (movie) => {
+  const closeModal = () => {
     setModalOpen(false);
     setSelectedMovie(null);
   };
 
-  // Movie Info
-  const movieInfo = () => {
-    if (!selectedMovie || !modalOpen) return null;
-    console.log('CLICK');
-
-    return (
-      <div
-        className={`screen ${modalOpen ? 'visible' : ''}`}
-        onClick={closeModal}
-      >
-        <div className="modal" onClick={(e) => e.stopPropagation()}>
-          <div className="movie-item">
-            <div className="ambilight">
-              <div className="iconos">
-                <div
-                  className="me-gusta"
-                  onClick={() => props.handleFavouritesClick(selectedMovie)}
-                >
-                  <IconoCorazon
-                    ancho="16px"
-                    alto="16px"
-                    esFavorito={
-                      props.favourites &&
-                      props.favourites.some(
-                        (favourite) => favourite.id === selectedMovie.id
-                      )
-                    }
-                  />
-                </div>
-                <div
-                  className="ver-info"
-                  onClick={() => openModalPoster(selectedMovie)}
-                >
-                  <IconoMax ancho="16px" alto="16px" />
-                </div>
-              </div>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
-                alt="Displayed first"
-                className="image"
-              />
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
-                alt="Ambilight effect"
-                className="light"
-              />
-            </div>
-          </div>
-          <div className="modal-info">
-            <h2 style={{ top: '0' }}>{selectedMovie.title}</h2>
-            <p>
-              <i>{selectedMovie.original_title}</i> ·{' '}
-              {selectedMovie.release_date.slice(0, 4)}
-            </p>
-            <p>{selectedMovie.overview}</p>
-            <MovieTrailer movieID={selectedMovie.id} />
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   // Poster
-  const [modalPosterOpen, setModalPosterOpen] = useState(false);
-
   const openModalPoster = (movie, selectedMovie, modalOpen) => {
     !modalOpen
       ? setSelectedMoviePoster(movie)
@@ -94,41 +28,26 @@ const MoviesList = (props) => {
     setModalPosterOpen(true);
   };
 
-  const closeModalPoster = (movie) => {
+  const closeModalPoster = () => {
     setModalPosterOpen(false);
     setSelectedMoviePoster(null);
   };
 
-  // Movie Poster
-  const moviePoster = () => {
-    if (!selectedMoviePoster || !modalPosterOpen) return null;
-    console.log('Abriendo poster...');
-
-    return (
-      <div
-        className={`screen ${modalPosterOpen ? 'visible' : ''}`}
-        onClick={closeModalPoster}
-      >
-        <div className="ambilight-modal" onClick={(e) => e.stopPropagation()}>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${selectedMoviePoster.poster_path}`}
-            alt="Displayed first"
-            className="image"
-          />
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${selectedMoviePoster.poster_path}`}
-            alt="Ambilight effect"
-            className="light"
-          />
-        </div>
-      </div>
-    );
-  };
-
   return (
     <>
-      {movieInfo()}
-      {moviePoster()}
+      <MovieInfo
+        selectedMovie={selectedMovie}
+        modalOpen={modalOpen}
+        favourites={props.favourites}
+        handleFavouritesClick={props.handleFavouritesClick}
+        closeModal={closeModal}
+        openModalPoster={openModalPoster}
+      />
+      <MoviePoster
+        selectedMoviePoster={selectedMoviePoster}
+        modalPosterOpen={modalPosterOpen}
+        closeModalPoster={closeModalPoster}
+      />
 
       <div
         style={{
@@ -150,7 +69,7 @@ const MoviesList = (props) => {
               position: 'relative',
               zIndex: '15',
               padding: '0',
-              marginTop: "0"
+              marginTop: '0',
             }}
           >
             Hay {props.movies.length} resultados:

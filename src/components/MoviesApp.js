@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MoviesList from './MoviesList';
 import MovieListHeading from './MovieListHeading';
-import MovieSearchBox from './MovieSearchBox';
 import NavBar from './NavBar';
 
 const MoviesApp = () => {
