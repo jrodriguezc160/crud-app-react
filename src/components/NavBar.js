@@ -8,14 +8,17 @@ export default function NavBar(props) {
           <a href="/index.html">
             <img
               src="/logo512.png"
-              style={{ width: '1.5vw', height: '1.5vw' }}
+              alt="react-logo"
+              style={{ width: '16px', height: '16px' }}
             />
           </a>
         </li>
-        <li>
+
+        <li className='hideable'>
           <a href="../../public/index.html">Inicio</a>
         </li>
-        <li>
+
+        <li className='hideable'>
           <a
             href="https://github.com/jrodriguezc160"
             target="_blank"
@@ -24,7 +27,8 @@ export default function NavBar(props) {
             GitHub
           </a>
         </li>
-        <li>
+
+        <li className='hideable'>
           <a
             href="https://youtube.com/playlist?list=PLvq-jIkSeTUZ5XcUw8fJPTBKEHEKPMTKk&si=xMuFHd3DRzHfmupu"
             target="_blank"
@@ -33,7 +37,8 @@ export default function NavBar(props) {
             Curso React
           </a>
         </li>
-        <li>
+
+        <li className='hideable'>
           <MovieSearchBox
             searchValue={props.searchValue}
             setSearchValue={props.setSearchValue}
