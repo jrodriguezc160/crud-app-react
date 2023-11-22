@@ -66,13 +66,13 @@ p {
 
 .navbar-wrap {
   top: 0;
-  z-index: 20;
+  z-index: 50;
   position: sticky;
   background: linear-gradient(white, rgba(255, 255, 255, 0.7), #ffffff00);
 }
 
 .navbar {
-  z-index: 21;
+  z-index: 51;
   text-align: left;
   width: 100%;
   padding: 1rem 0;
@@ -514,7 +514,7 @@ BÚSQUEDA DE PELÍCULAS */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: scroll;
   z-index: 91;
   transition: all 0.3s ease-out;
 }
@@ -522,43 +522,63 @@ BÚSQUEDA DE PELÍCULAS */
 .modal {
   position: relative;
   margin: auto;
-  width: 70vw;
-  height: 65vh;
-  max-height: fit-content;
+  margin-top: 5vw;
+  width: 60vw;
+  height: fit-content;
+  min-height: 120vh;
   z-index: 92;
   border: 1px solid lightgrey;
   border-radius: 0.5rem;
   background-color: whitesmoke;
   box-sizing: border-box;
-  padding: 2vw 2vw 2vw 2vw;
+  padding: 2vw;
   transition: all 0.3s ease-out;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.modal > .movie-item {
+.top-info {
+  position: relative;
+  margin-left: auto;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 3vw;
+}
+
+.bottom-info {
+  margin-left: auto;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-info > .movie-item {
   flex: 0 0 auto;
   margin: 0;
   padding: 0;
-  width: 30%;
+  width: 35%;
   height: 100%;
-  margin-right: 2vw;
 }
 
-.modal > .movie-item > .ambilight {
+.top-info > .movie-item > .ambilight {
   padding: 0;
-  width: 35vh;
+  min-width: 10vh;
+  width: fit-content;
   height: auto;
-  margin: auto 0;
+  margin: auto;
   padding: 0;
 }
 
-.modal > .movie-item > .ambilight > .light {
-  width: 35vh;
+.top-info > .movie-item > .ambilight > .light {
+  width: 100%;
   height: auto;
 }
 
-.modal > .movie-item:hover {
+.top-info > .movie-item:hover {
   transform: scale(1);
 
   .light {
@@ -569,10 +589,8 @@ BÚSQUEDA DE PELÍCULAS */
 
 .modal-info {
   flex: 1;
+  flex-direction: column;
   height: 100%;
-  position: relative;
-  display: block;
-  top: 0;
 }
 
 .ambilight-modal {
@@ -798,8 +816,11 @@ BÚSQUEDA DE PELÍCULAS */
 }
 
 /* Consulta de medios para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .me-gusta svg, .ver-info svg, .cerrar-modal svg, .iconos svg {
+@media (max-width: 862px) {
+  .me-gusta svg,
+  .ver-info svg,
+  .cerrar-modal svg,
+  .iconos svg {
     opacity: 100%;
   }
 
@@ -839,21 +860,21 @@ BÚSQUEDA DE PELÍCULAS */
 
   .navbar {
     flex-direction: column;
-    padding-top: 10vw;
+    padding-top: 4vh;
   }
 
   .search {
     position: absolute;
-    top: 25vw;
+    top: 12vh;
   }
 
   .on-vertical-menu {
-    top: 60vw;
+    top: 31vh;
   }
 
   .navbar ul {
     width: 100%;
-    margin-top: 5vw;
+    margin-top: 2vh;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -864,7 +885,7 @@ BÚSQUEDA DE PELÍCULAS */
   }
 
   .navbar li {
-    margin-bottom: 5vw;
+    margin-bottom: 3vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -881,5 +902,39 @@ BÚSQUEDA DE PELÍCULAS */
 
   .ambilight-modal {
     width: 55%;
+  }
+
+  .modal {
+    width: 75vw;
+  }
+
+  .top-info {
+    flex-direction: column;
+  }
+
+  .top-info > .movie-item {
+    width: 50%;
+    height: auto;
+  }
+
+  .top-info > .movie-item > .ambilight {
+    min-width: 10vh;
+    width: fit-content;
+    height: auto;
+  }
+
+  .top-info > .movie-item > .ambilight > .light {
+    width: 100%;
+    height: auto;
+    opacity: 100%;
+  }
+
+  .bottom-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  button {
+    min-width: 100px;
   }
 }

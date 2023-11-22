@@ -12,8 +12,8 @@ export default function NavBar(props) {
     <div className="navbar-wrap">
       <div className="navbar">
         <ul>
-          <li onClick={() => window.innerWidth < 768 && toggleVisibility()}>
-            {window.innerWidth < 768 ? (
+          <li onClick={() => window.innerWidth < 862 && toggleVisibility()}>
+            {window.innerWidth < 862 ? (
               <a>
                 <img
                   src="/logo512.png"
