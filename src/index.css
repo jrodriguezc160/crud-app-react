@@ -64,20 +64,25 @@ p {
 /* Barra de navegación
 (hecha con listas) */
 
-.navbar {
+.navbar-wrap {
+  top: 0;
   z-index: 20;
   position: sticky;
-  text-align: left;
-  top: 0;
-  width: 100%;
   background: linear-gradient(white, rgba(255, 255, 255, 0.7), #ffffff00);
+}
+
+.navbar {
+  z-index: 21;
+  text-align: left;
+  width: 100%;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   transition: all 0.3s ease-in-out;
 }
 
 .navbar ul {
-  margin: 2vw 2vw 4vw 2vw;
+  margin: 2vw;
   list-style: none;
   padding-left: 1rem;
   display: flex;
@@ -90,6 +95,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .navbar a {
@@ -226,6 +232,38 @@ button:active,
 button:focus,
 input:focus {
   box-shadow: 0 0 3px 1px #bdbdbd35;
+  outline: none;
+}
+
+/* Pequeño código
+para mostrar el icono de búsqueda al lado del input */
+
+.search {
+  padding: 0.5rem 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: whitesmoke;
+  border: 1px solid lightgrey;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-out;
+}
+
+.search:hover {
+  box-shadow: 0 0 5px 1px #80808035;
+}
+
+.search input {
+  padding: 0;
+  width: 100%;
+  border: none;
+  background-color: none;
+  padding-left: 15px;
+}
+
+.search input:focus,
+input:hover {
+  box-shadow: none;
   outline: none;
 }
 
@@ -460,28 +498,6 @@ BÚSQUEDA DE PELÍCULAS */
 
 .margen-manual {
   min-width: 2vw;
-}
-
-/* Pequeño código
-para meter un SVG dentro de un input */
-
-label {
-  position: relative;
-}
-
-label:before {
-  content: '';
-  position: absolute;
-  left: 1rem;
-  top: 0;
-  bottom: 0;
-  width: 16px;
-  background: url('../public/search.svg');
-}
-
-.input-con-icono {
-  margin: auto;
-  padding-left: calc(2rem + 16px);
 }
 
 /* Movie modal
@@ -746,7 +762,7 @@ label:before {
   background-color: #181818;
 }
 
-.dark-mode .navbar {
+.dark-mode .navbar-wrap {
   background: linear-gradient(#080808, #080808c4, #08080800);
 }
 
@@ -761,6 +777,24 @@ label:before {
 
 .dark-mode .modal {
   background-color: #080808;
+}
+
+.dark-mode .search {
+  background-color: #181818;
+  border: 1px solid #3e3e42;
+  color: lightgrey;
+}
+
+.dark-mode .search:hover {
+  box-shadow: 0 0 3px 1px #add8e635;
+}
+
+.dark-mode .search input {
+  padding: 0;
+  width: 100%;
+  border: none;
+  background-color: inherit;
+  padding-left: 15px;
 }
 
 /* Consulta de medios para pantallas más pequeñas */
@@ -790,8 +824,27 @@ label:before {
   }
 
   .hidden {
-    display: none;
+    margin-top: -200px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
     visibility: hidden;
+    display: none;
+    transition: opacity 0.3s ease-out, height 0.3s ease-out;
+  }
+
+  .navbar {
+    flex-direction: column;
+    padding-top: 10vw;
+  }
+
+  .search {
+    position: absolute;
+    top: 25vw;
+  }
+  
+  .on-vertical-menu {
+    top: 60vw;
   }
 
   .navbar ul {
@@ -803,8 +856,9 @@ label:before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease-out;
   }
-  
+
   .navbar li {
     margin-bottom: 5vw;
     display: flex;

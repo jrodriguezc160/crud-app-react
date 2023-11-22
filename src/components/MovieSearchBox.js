@@ -1,19 +1,18 @@
 import React from 'react';
+import { IconoBuscar } from './Iconos';
 
 const MovieSearchBox = (props) => {
   return (
-    <div style={{ height: 'fit-content', padding: "0" }}>
-      <label>
-        <input
-          placeholder="ej. Avengers"
-          value={props.value}
-          onChange={(event) => {
-            props.setSearchValue(event.target.value);
-          }}
-          className="input-con-icono"
-        ></input>
-      </label>
-    </div>
+    <>
+      <IconoBuscar ancho="16px" alto="16px" />
+      <input
+        placeholder="ej. Avengers"
+        value={props.value}
+        onChange={(event) => {
+          props.setSearchValue(event.target.value);
+        }}
+      ></input>
+    </>
   );
 };
 
