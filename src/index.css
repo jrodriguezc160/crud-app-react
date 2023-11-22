@@ -577,7 +577,7 @@ BÚSQUEDA DE PELÍCULAS */
 
 .ambilight-modal {
   margin: 3vw 0 0 0;
-  width: 27vw;
+  width: 30%;
   height: auto;
   max-height: fit-content;
   position: relative;
@@ -799,6 +799,10 @@ BÚSQUEDA DE PELÍCULAS */
 
 /* Consulta de medios para pantallas más pequeñas */
 @media (max-width: 768px) {
+  .me-gusta svg, .ver-info svg, .cerrar-modal svg, .iconos svg {
+    opacity: 100%;
+  }
+
   .contenedor-principal {
     flex-direction: column; /* Cambiado a dirección de columna en pantallas más pequeñas */
   }
@@ -842,7 +846,7 @@ BÚSQUEDA DE PELÍCULAS */
     position: absolute;
     top: 25vw;
   }
-  
+
   .on-vertical-menu {
     top: 60vw;
   }
@@ -873,5 +877,9 @@ BÚSQUEDA DE PELÍCULAS */
 
   .navbar a img {
     transform: scale(1.5);
+  }
+
+  .ambilight-modal {
+    width: 55%;
   }
 }
