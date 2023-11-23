@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MovieTrailer from './MovieTrailer';
 import { IconoCerrar, IconoCorazon, IconoMax } from './Iconos';
+import MovieImage from './MovieImage';
 
 const MovieInfo = ({
   selectedMovie,
@@ -11,8 +12,82 @@ const MovieInfo = ({
   openModalPoster,
 }) => {
   const [isHidden, setIsHidden] = useState(true);
+  const [movieDetails, setMovieDetails] = useState({});
+  const [cast, setCast] = useState([]);
+  const [director, setDirector] = useState(null);
+  const [guionista, setGuionista] = useState(null);
+
+  useEffect(() => {
+    const fetchMovieDetails = async () => {
+      const detailsOptions = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNmRiY2QzMzRiYWI5MjViMjg5MTEwNDY1YTg4MDZkNiIsInN1YiI6IjY1NGRmM2I0NDFhNTYxMzM2YzVmYjU2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HY7VrsbpUBeQtEhGzZC1NYNRrU29_KsLVW-NmyH_8EU',
+        },
+      };
+
+      const creditsOptions = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNmRiY2QzMzRiYWI5MjViMjg5MTEwNDY1YTg4MDZkNiIsInN1YiI6IjY1NGRmM2I0NDFhNTYxMzM2YzVmYjU2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HY7VrsbpUBeQtEhGzZC1NYNRrU29_KsLVW-NmyH_8EU',
+        },
+      };
+
+      try {
+        const detailsResponse = await fetch(
+          `https://api.themoviedb.org/3/movie/${selectedMovie.id}?language=en-US`,
+          detailsOptions
+        );
+        const detailsData = await detailsResponse.json();
+        setMovieDetails(detailsData);
+
+        const creditsResponse = await fetch(
+          `https://api.themoviedb.org/3/movie/${selectedMovie.id}/credits?language=en-US`,
+          creditsOptions
+        );
+        const creditsData = await creditsResponse.json();
+        setCast(creditsData.cast);
+
+        const directorResult = creditsData.crew.filter(
+          (crewMember) =>
+            crewMember.department === 'Directing' &&
+            crewMember.job === 'Director'
+        );
+
+        const guionistaResult = creditsData.crew.filter(
+          (crewMember) =>
+            crewMember.department === 'Writing' &&
+            crewMember.job === 'Screenplay'
+        );
+
+        setDirector(directorResult);
+        setGuionista(guionistaResult);
+
+        console.log('Cast:', creditsData.cast);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (selectedMovie) {
+      fetchMovieDetails();
+    }
+  }, [selectedMovie]);
 
   if (!selectedMovie || !modalOpen) return null;
+
+  const actoresPrincipales =
+    (cast &&
+      cast
+        .slice(0, 3)
+        .map((actor) => actor.name)
+        .join(', ')) ||
+    'No disponible';
+
   console.log('Abriendo la información de la película...');
 
   const toggleVisibility = () => {
@@ -25,7 +100,9 @@ const MovieInfo = ({
       onClick={() => closeModal()}
     >
       <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <div className="bg-image"></div>
+        <div className="bg-image">
+          <MovieImage movieID={selectedMovie.id} />
+        </div>
 
         <div className="top-info">
           <div className="movie-item">
@@ -66,17 +143,32 @@ const MovieInfo = ({
             </div>
           </div>
           <div className="modal-info">
-            <h2 style={{ top: '0' }}>{selectedMovie.title}</h2>
+            <h2 style={{ top: '0', fontSize: '32px' }}>
+              {selectedMovie.title}
+            </h2>
             <p>
               <i>{selectedMovie.original_title}</i>
             </p>
             <p>
-              {selectedMovie.release_date.slice(0, 4)} · Acción · Aventuras ·
-              Drama · 2h 20min
+              {selectedMovie.release_date.slice(0, 4)} ·{' '}
+              {movieDetails.genres
+                ? movieDetails.genres.map((genre) => genre.name).join(' · ')
+                : 'No disponible'}{' '}
+              · {movieDetails.runtime && `${movieDetails.runtime}min`}
             </p>
-            <p>Dirección: </p>
-            <p>Guión: </p>
-            <p>Reparto principal: </p>
+            <p>
+              Dirección:
+              {director && director.length > 0
+                ? director.map((d) => d.name).join(', ')
+                : 'No disponible'}
+            </p>
+            <p>
+              Guión:
+              {guionista && guionista.length > 0
+                ? guionista.map((d) => d.name).join(', ')
+                : 'No disponible'}
+            </p>
+            <p>Reparto principal: {actoresPrincipales}</p>
 
             {window.innerWidth < 856 ? (
               !isHidden ? (

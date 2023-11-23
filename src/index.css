@@ -531,7 +531,8 @@ BÚSQUEDA DE PELÍCULAS */
   border-radius: 0.5rem;
   background-color: whitesmoke;
   box-sizing: border-box;
-  padding: 2vw;
+  padding: 0;
+  padding-bottom: 25vw;
   transition: all 0.3s ease-out;
   display: flex;
   flex-direction: column;
@@ -539,13 +540,15 @@ BÚSQUEDA DE PELÍCULAS */
 }
 
 .top-info {
-  position: relative;
+  position: absolute;
   margin-left: auto;
+  margin-top: 25vw;
   padding: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 3vw;
+  z-index: 70;
 }
 
 .bottom-info {
@@ -560,6 +563,7 @@ BÚSQUEDA DE PELÍCULAS */
   flex: 0 0 auto;
   margin: 0;
   padding: 0;
+  padding-left: 3vw;
   width: 35%;
   height: 100%;
 }
@@ -588,6 +592,7 @@ BÚSQUEDA DE PELÍCULAS */
 }
 
 .modal-info {
+  padding-right: 3vw;
   flex: 1;
   flex-direction: column;
   height: 100%;

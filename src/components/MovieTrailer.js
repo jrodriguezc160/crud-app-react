@@ -24,8 +24,7 @@ const MovieTrailer = (props) => {
 
         // Filtramos los vídeos para encontrar un tráiler
         const trailerOficial = videos.find(
-          (video) => video.type === 'Trailer' && video.official === true
-        );
+          (video) => video.type === 'Trailer');
 
         if (trailerOficial) {
           setYoutubeLink(
