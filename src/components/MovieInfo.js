@@ -110,106 +110,123 @@ const MovieInfo = ({
       className={`screen ${modalOpen ? 'visible' : ''}`}
       onClick={() => closeModal()}
     >
-      {isLoading ? (
-        <h1>Loading...</h1>
-      ) : (
-        <div className="modal" onClick={(e) => e.stopPropagation()}>
-          <div className="bg-image">
-            <MovieImage movieID={selectedMovie.id} />
-          </div>
-
-          <div className="top-info">
-            <div className="movie-item">
-              <div className="ambilight">
-                <div className="iconos">
-                  <div
-                    className="me-gusta"
-                    onClick={() => handleFavouritesClick(selectedMovie)}
-                  >
-                    <IconoCorazon
-                      ancho="16px"
-                      alto="16px"
-                      esFavorito={
-                        favourites &&
-                        favourites.some(
-                          (favourite) => favourite.id === selectedMovie.id
-                        )
-                      }
-                    />
-                  </div>
-                  <div
-                    className="ver-info"
-                    onClick={() => openModalPoster(selectedMovie)}
-                  >
-                    <IconoMax ancho="16px" alto="16px" />
-                  </div>
-                </div>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
-                  alt="Displayed first"
-                  className="image"
-                />
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
-                  alt="Ambilight effect"
-                  className="light"
-                />
-              </div>
-              <MovieTrailer movieID={selectedMovie.id} />
-            </div>
-            <div className="modal-info">
-              <h2 style={{ top: '0', fontSize: '32px' }}>
-                {selectedMovie.title}
-              </h2>
-              <p>
-                <i>{selectedMovie.original_title}</i>
-              </p>
-              <p>
-                {selectedMovie.release_date.slice(0, 4)} ·{' '}
-                {movieDetails.genres
-                  ? movieDetails.genres.map((genre) => genre.name).join(' · ')
-                  : 'No disponible'}{' '}
-                · {movieDetails.runtime && `${movieDetails.runtime}min`}
-              </p>
-              <p>
-                Dirección:
-                {director && director.length > 0
-                  ? director.map((d) => d.name).join(', ')
-                  : 'No disponible'}
-              </p>
-              <p>
-                Guión:
-                {guionista && guionista.length > 0
-                  ? guionista.map((d) => d.name).join(', ')
-                  : 'No disponible'}
-              </p>
-              <p>Reparto principal: {actoresPrincipales}</p>
-
-              {window.innerWidth < 856 ? (
-                !isHidden ? (
-                  <div>
-                    <p style={{ wordBreak: 'break-word', textAlign: 'left' }}>
-                      {selectedMovie.overview}
-                    </p>
-                    <button onClick={toggleVisibility}>Ver menos</button>
-                  </div>
-                ) : (
-                  <div>
-                    <button onClick={toggleVisibility}>Ver más</button>
-                  </div>
-                )
-              ) : (
-                <p style={{ wordBreak: 'break-word', textAlign: 'left' }}>
-                  {selectedMovie.overview}
-                </p>
-              )}
-            </div>
-          </div>
-          <div className="cerrar-modal" onClick={() => closeModal()}>
-            <IconoCerrar ancho="16px" alto="16px" />
-          </div>
+      {isLoading && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            margin: 'auto',
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <h1>Loading...</h1>
         </div>
       )}
+
+      <div
+        className={`modal ${isLoading ? 'invisible-modal' : ''}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="bg-image">
+          <MovieImage movieID={selectedMovie.id} />
+        </div>
+
+        <div className="top-info">
+          <div className="movie-item">
+            <div className="ambilight">
+              <div className="iconos">
+                <div
+                  className="me-gusta"
+                  onClick={() => handleFavouritesClick(selectedMovie)}
+                >
+                  <IconoCorazon
+                    ancho="16px"
+                    alto="16px"
+                    esFavorito={
+                      favourites &&
+                      favourites.some(
+                        (favourite) => favourite.id === selectedMovie.id
+                      )
+                    }
+                  />
+                </div>
+                <div
+                  className="ver-info"
+                  onClick={() => openModalPoster(selectedMovie)}
+                >
+                  <IconoMax ancho="16px" alto="16px" />
+                </div>
+              </div>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+                alt="Displayed first"
+                className="image"
+              />
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+                alt="Ambilight effect"
+                className="light"
+              />
+            </div>
+            <MovieTrailer movieID={selectedMovie.id} />
+          </div>
+          <div className="modal-info">
+            <h2 style={{ top: '0', fontSize: '32px' }}>
+              {selectedMovie.title}
+            </h2>
+            <p>
+              <i>{selectedMovie.original_title}</i>
+            </p>
+            <p>
+              {selectedMovie.release_date.slice(0, 4)} ·{' '}
+              {movieDetails.genres
+                ? movieDetails.genres.map((genre) => genre.name).join(' · ')
+                : 'No disponible'}{' '}
+              · {movieDetails.runtime && `${movieDetails.runtime}min`}
+            </p>
+            <p>
+              Dirección:
+              {director && director.length > 0
+                ? director.map((d) => d.name).join(', ')
+                : 'No disponible'}
+            </p>
+            <p>
+              Guión:
+              {guionista && guionista.length > 0
+                ? guionista.map((d) => d.name).join(', ')
+                : 'No disponible'}
+            </p>
+            <p>Reparto principal: {actoresPrincipales}</p>
+
+            {window.innerWidth < 856 ? (
+              !isHidden ? (
+                <div>
+                  <p style={{ wordBreak: 'break-word', textAlign: 'left' }}>
+                    {selectedMovie.overview}
+                  </p>
+                  <button onClick={toggleVisibility}>Ver menos</button>
+                </div>
+              ) : (
+                <div>
+                  <button onClick={toggleVisibility}>Ver más</button>
+                </div>
+              )
+            ) : (
+              <p style={{ wordBreak: 'break-word', textAlign: 'left' }}>
+                {selectedMovie.overview}
+              </p>
+            )}
+          </div>
+        </div>
+        <div className="cerrar-modal" onClick={() => closeModal()}>
+          <IconoCerrar ancho="16px" alto="16px" />
+        </div>
+      </div>
     </div>
   );
 };

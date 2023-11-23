@@ -537,6 +537,15 @@ BÚSQUEDA DE PELÍCULAS */
   align-items: center;
 }
 
+.invisible-modal {
+  margin-top: -200px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, height 0.3s ease-out;
+}
+
 .ver-trailer-modal {
   margin-top: 1vw;
   width: 100%;
