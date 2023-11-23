@@ -928,6 +928,12 @@ BÚSQUEDA DE PELÍCULAS */
 
   .top-info {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ver-trailer-modal > button {
+    width: 100%;
   }
 
   .top-info > .movie-item {
@@ -947,9 +953,8 @@ BÚSQUEDA DE PELÍCULAS */
     opacity: 100%;
   }
 
-  .bottom-info {
-    width: 100%;
-    text-align: center;
+  .modal-info {
+    padding-left: 3vw;
   }
 
   button {
