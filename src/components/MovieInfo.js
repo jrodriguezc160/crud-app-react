@@ -16,7 +16,17 @@ const MovieInfo = ({
   const [cast, setCast] = useState([]);
   const [director, setDirector] = useState(null);
   const [guionista, setGuionista] = useState(null);
-  const [rendered, setRendered] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Ajusta el tiempo de espera según tus necesidades
+
+    return () => clearTimeout(timeoutId);
+  }, [selectedMovie]);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -79,19 +89,7 @@ const MovieInfo = ({
     }
   }, [selectedMovie]);
 
-  useEffect(() => {
-    return () => {
-      if (modalOpen && !rendered) {
-        const timer = setTimeout(() => {
-          setRendered(true);
-        }, 1000);
-
-        return () => clearTimeout(timer);
-      }
-    };
-  }, [modalOpen, rendered]);
-
-  if (!selectedMovie || !modalOpen || !rendered) return null;
+  if (!selectedMovie || !modalOpen) return null;
 
   const actoresPrincipales =
     (cast &&
@@ -112,7 +110,9 @@ const MovieInfo = ({
       className={`screen ${modalOpen ? 'visible' : ''}`}
       onClick={() => closeModal()}
     >
-      {setTimeout(() => {
+      {isLoading ? (
+        <h1>Loading...</h1>
+      ) : (
         <div className="modal" onClick={(e) => e.stopPropagation()}>
           <div className="bg-image">
             <MovieImage movieID={selectedMovie.id} />
@@ -208,8 +208,8 @@ const MovieInfo = ({
           <div className="cerrar-modal" onClick={() => closeModal()}>
             <IconoCerrar ancho="16px" alto="16px" />
           </div>
-        </div>;
-      }, 1000)}
+        </div>
+      )}
     </div>
   );
 };
