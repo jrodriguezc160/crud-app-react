@@ -525,7 +525,7 @@ BÚSQUEDA DE PELÍCULAS */
   margin-top: 5vw;
   width: 60vw;
   height: fit-content;
-  min-height: 120vh;
+  min-height: 140vh;
   z-index: 92;
   border: 1px solid lightgrey;
   border-radius: 0.5rem;
@@ -540,6 +540,7 @@ BÚSQUEDA DE PELÍCULAS */
 }
 
 .top-info {
+  height: fit-content;
   position: absolute;
   margin-left: auto;
   margin-top: 25vw;
