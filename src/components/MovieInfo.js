@@ -23,7 +23,7 @@ const MovieInfo = ({
 
     const timeoutId = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Ajusta el tiempo de espera según tus necesidades
+    }, 1000); // Ajusta el tiempo de espera según tus necesidades
 
     return () => clearTimeout(timeoutId);
   }, [selectedMovie]);
@@ -190,13 +190,13 @@ const MovieInfo = ({
               · {movieDetails.runtime && `${movieDetails.runtime}min`}
             </p>
             <p>
-              Dirección:
+              Dirección:&nbsp;
               {director && director.length > 0
                 ? director.map((d) => d.name).join(', ')
                 : 'No disponible'}
             </p>
             <p>
-              Guión:
+              Guión:&nbsp;
               {guionista && guionista.length > 0
                 ? guionista.map((d) => d.name).join(', ')
                 : 'No disponible'}
