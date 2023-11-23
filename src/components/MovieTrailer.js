@@ -49,7 +49,7 @@ const MovieTrailer = (props) => {
   return (
     <>
       {youtubeLink && (
-        <a href={youtubeLink} target="blank">
+        <a href={youtubeLink} target="blank" className='ver-trailer-modal'>
           <button>Ver tráiler</button>
         </a>
       )}

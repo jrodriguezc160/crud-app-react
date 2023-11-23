@@ -525,39 +525,42 @@ BÚSQUEDA DE PELÍCULAS */
   margin-top: 5vw;
   width: 60vw;
   height: fit-content;
-  min-height: 140vh;
   z-index: 92;
   border: 1px solid lightgrey;
   border-radius: 0.5rem;
   background-color: whitesmoke;
   box-sizing: border-box;
   padding: 0;
-  padding-bottom: 25vw;
   transition: all 0.3s ease-out;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.ver-trailer-modal {
+  margin-top: 1vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.ver-trailer-modal > button:hover {
+  width: 100%;
+}
+
 .top-info {
   height: fit-content;
-  position: absolute;
+  position: relative;
   margin-left: auto;
-  margin-top: 25vw;
   padding: 0;
+  top: -5rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 3vw;
-  z-index: 70;
-}
-
-.bottom-info {
-  margin-left: auto;
-  padding: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  z-index: 77;
 }
 
 .top-info > .movie-item {
