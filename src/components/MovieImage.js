@@ -96,16 +96,7 @@ const MovieImage = React.memo((props) => {
               zIndex: '68',
             }}
           />
-          <div
-            style={{
-              width: '100%',
-              height: '25%',
-              position: 'absolute',
-              bottom: '0',
-              background: 'linear-gradient(#08080800, #080808c4, #080808)',
-              zIndex: '69',
-            }}
-          ></div>
+          <div className="div-degradado"></div>
         </div>
       )}
     </>
